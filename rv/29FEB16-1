@@ -1,0 +1,12 @@
+function Persona(nombre,apellido,edad){
+this.nombre=nombre;
+this.apellido=apellido;
+this.edad=edad;
+
+this.diEdad=function(){
+consolé.log("Mi edad es",this.edad);
+}
+}
+
+var miPadre=new Persona ('Adrian', 'Barrios',23);
+miPadre.diEdad();
