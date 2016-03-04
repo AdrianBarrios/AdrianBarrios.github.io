@@ -15,7 +15,7 @@ function  setup(){
   piernaI = new Pierna();
   cuerpo.position.y = 2;
   piernaD.position.z = -1;
-  piernaI.position.z =1;
+  piernaI.position.z = 1;
   step = .01;
   escena = new THREE.Scene();
   escena.add( cuerpo);
@@ -25,7 +25,7 @@ function  setup(){
   camara.position.z = 20;
   
   renderer = new THREE.WebGLRenderer();
-  renderder.setSize( window.inner*.95, window.innerHeight*.95);
+  renderder.setSize( window.innerHeight*.95, window.innerHeight*.95);
   document.body.appendChild( renderer.domElement);
   }
   function  loop() {
