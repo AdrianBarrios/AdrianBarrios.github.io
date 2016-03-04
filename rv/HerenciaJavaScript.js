@@ -3,7 +3,7 @@ THREE.Object3D.call(this);
 this.pierna = new THREE.Mesh( new THREE.BoxGeometry(1, 5, 1));
 this.pie = new THREE.Mesh( new THREE.BoxGeometry(2, 1, 1));
 this.pierna.position.y = -2.5;
-this.pie.position.y = -2.5;
+this.pie.position.y = -4.5;
 this.pie.position.x = 1;
 this.add(this.pierna);
 this.add(this.pie);
