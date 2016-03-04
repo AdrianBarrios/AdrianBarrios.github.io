@@ -20,7 +20,7 @@ function  setup(){
   escena = new THREE.Scene();
   escena.add( cuerpo);
   escena.add( piernaD);
-  escena.add( piernaI);
+  escena.add( piernaI);   
   camara = new THREE.PerspectiveCamera();
   camara.position.z = 20;
   
