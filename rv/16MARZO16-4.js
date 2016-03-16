@@ -2,7 +2,7 @@ function  setup(){
 THREE.ImageUtils.crossOrigin='';
 var textura = THREE.ImageUtils.loadTexture('http://threejs.org/examples/textures/cube/pisa/nz.png');
 var material = new THREE.MeshLambertMaterial({map: textura} );
-var forma = new THREE.BoxGeometry(1, 4, 9);
+var forma = new THREE.BoxGeometry(1, 1, 1);
 malla = new THREE.Mesh(forma, material);
 
 var luzPuntual = new THREE.PointLight(0xFFFFFF);
