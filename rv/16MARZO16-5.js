@@ -4,7 +4,7 @@ var textura = THREE.ImageUtils.loadTexture('http://threejs.org/examples/textures
 var material = new THREE.MeshPhongMaterial({map: textura} );
 var forma = new THREE.SphereGeometry(1);
 malla = new THREE.Mesh(forma, material);
-malla.rotation.x += 0.25;
+malla.rotation.y += 0.25;
 
 var luzPuntual = new THREE.PointLight(0xFFFFFF);
 luzPuntual.position.x=10;
