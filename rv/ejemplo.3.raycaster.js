@@ -31,22 +31,25 @@ cubo2.position.x = -7;
 }
 
 function loop(){
-  var intersects = raycaster.intersectObjects(escena.children);
-  if(intersects.length > 0) step = -step;
+  obstaculo1 = raycaster1.intersectObjects(cubo1);
+  obstaculo2 = raycaster2.intersectObjects(cubo2);
   
-  cubo1.rotation.x += step;
-  cubo1.rotation.y += step;
-  cubo2.rotation.x += step;
-  cubo2.rotation.y += step;
+  if((obstaculo1.length> 0 && (obstaculo1[0].distance<= 0.5)) ||
+    (obstaculo2.length> 0 && (obstaculo2[0].distance<= 0.5)) ||
+  step = -step;
   
-  renderer.render( escena, camara );
-  requestAnimationFrame(loop);
+  pelota.position.x += step;
+  raycaster1.set(pelota.position, new THREE.Vector3(1,0,0) );
+  raycaster2.set(pelota.position, new THREE.Vector3(-1,0,0) );
   
-  
+  renderer render(escena,camara);
+  requestAnimationFrame(loop)
 } 
 
-var cubo1, cubo2, escena, camara, renderer;
-var raycaster, step;
+var cubo1, cubo2,pelota, escena, camara, renderer;
+var raycaster1,raycaster2, step;
+var obstaculo1, obstaculo2;
+
 
 setup();
 loop();
