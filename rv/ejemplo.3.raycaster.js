@@ -35,7 +35,7 @@ function loop(){
   obstaculo2 = raycaster2.intersectObjects(cubo2);
   
   if((obstaculo1.length> 0 && (obstaculo1[0].distance<= 0.5)) ||
-    (obstaculo2.length> 0 && (obstaculo2[0].distance<= 0.5)) ||
+    (obstaculo2.length> 0 && (obstaculo2[0].distance<= 0.5)))
   step = -step;
   
   pelota.position.x += step;
