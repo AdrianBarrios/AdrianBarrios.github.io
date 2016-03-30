@@ -50,6 +50,6 @@ var cubo1, cubo2,pelota, escena, camara, renderer;
 var raycaster1,raycaster2, step;
 var obstaculo1, obstaculo2;
 
-
+ 
 setup();
 loop();
