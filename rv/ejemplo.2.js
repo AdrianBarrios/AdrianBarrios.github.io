@@ -27,7 +27,7 @@ cubo2.position.x = -0.7;
 }
 
 function loop(){
-  var intersects = raycaster.intersectObjetcs(escena,children);
+  var intersects = raycaster.intersectObjetcs(escena.children);
   if(intersects.length > 0) step = -step;
   
   cubo1.rotation.x += step;
