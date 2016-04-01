@@ -13,7 +13,8 @@ function setup(){
   var base = new THREE.BoxGeometry( 50,80,20 );
 	var soporte = new THREE.CylinderGeometry(10,10,50 );
 	var soporte2 = new THREE.CylinderGeometry(5,5.25 );
-	
+
+var material = new THREE.MeshNormalMaterial();	
 		var mallaRueda1 = new THREE.Mesh( rueda );
 		var mallaRueda2 = new THREE.Mesh( rueda );
 		var mallaBase = new THREE.Mesh( base );
