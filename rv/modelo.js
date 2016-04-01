@@ -10,7 +10,7 @@ function setup(){
 
 	var extrudeSettings = { amount: 8, bevelEnabled: true, bevelSegments: 2, steps: 2, bevelSize: 1, bevelThickness: 1 };
 	var rueda = new THREE.ExtrudeGeometry( arcShape, extrudeSettings );
-  var base = new THREE.BoxGeometry( 50,80,20 );
+	 var base = new THREE.BoxGeometry( 50,80,20 );
 	var soporte = new THREE.CylinderGeometry(10,10,50 );
 	var soporte2 = new THREE.CylinderGeometry(5,5.25 );
 
@@ -24,6 +24,11 @@ var material = new THREE.MeshNormalMaterial();
 		
 	mallaRueda1.position.set( 0, 0, 0);
 	mallaBase.position.set( 50, 0, 0);
+	mallaRueda2.position.set( 150, 0, 0);
+	mallaSoporte.position.set( 50, 0, 20);
+	mallaSoporte2.position.set( 50, 0, 50 );
+	
+	
 	var robot = new THREE.Geometry();
 
 	THREE.GeometryUtils.merge( robot, mallaRueda1 );
