@@ -44,4 +44,18 @@ function setup(){
 	document.body.appendChild( renderer.domElement );
 }
 
+
+function loop(){
+	requestAnimationFrame( loop );
+
+	//mallaRobot.rotation.x += 0.01;
+	mallaRobot.rotation.y += 0.01;
+
+	renderer.render( escena, camara );
+}
+
+var mallaRobot, camara, escena, renderer;
+
+setup();
+loop();
 		
