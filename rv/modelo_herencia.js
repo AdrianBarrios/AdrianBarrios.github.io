@@ -33,7 +33,7 @@ function setup(){
 		var Soporte = new THREE.Mesh( 10,10,70 );
 		var Soporte2 = new THREE.Mesh(5,5.25);
 		
-		var mallaSoporte = new THREE.Mesh( soporte,material);
+		var mallaSoporte = new THREE.Mesh( soporte, material);
 		var mallaSoporte2 = new THREE.Mesh( soporte2, material);
 		mallaBase = new base();
 		
