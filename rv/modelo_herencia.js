@@ -6,7 +6,7 @@ function rueda(){
 	this.holePath = new THREE.Path();
 				this.holePath.moveTo( 20, 10 );
 				this.holePath.absarc( 10, 10, 10, 0, Math.PI*2, true );
-				this.arcShape.holes.push( holePath );
+				this.arcShape.holes.push( this.holePath );
 
 	this.extrudeSettings = { amount: 8, bevelEnabled: true, bevelSegments: 2, steps: 2, bevelSize: 1, bevelThickness: 1 };
 	
