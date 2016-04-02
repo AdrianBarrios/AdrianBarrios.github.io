@@ -1,12 +1,12 @@
 function rueda(){
 	THREE.Object3D.call(this);
 	this.arcShape = new THREE.Shape();
-				arcShape.moveTo( 50, 10 );
-				arcShape.absarc( 10, 10, 40, 0, Math.PI*2, false );
+				this.arcShape.moveTo( 50, 10 );
+				this.arcShape.absarc( 10, 10, 40, 0, Math.PI*2, false );
 	this.holePath = new THREE.Path();
-				holePath.moveTo( 20, 10 );
-				holePath.absarc( 10, 10, 10, 0, Math.PI*2, true );
-				arcShape.holes.push( holePath );
+				this.holePath.moveTo( 20, 10 );
+				this.holePath.absarc( 10, 10, 10, 0, Math.PI*2, true );
+				this.arcShape.holes.push( holePath );
 
 	this.extrudeSettings = { amount: 8, bevelEnabled: true, bevelSegments: 2, steps: 2, bevelSize: 1, bevelThickness: 1 };
 	
