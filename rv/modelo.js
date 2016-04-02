@@ -17,9 +17,9 @@ function setup(){
 var material = new THREE.MeshNormalMaterial();	
 		var mallaRueda1 = new THREE.Mesh( rueda );
 		var mallaRueda2 = new THREE.Mesh( rueda );
-	//	var mallaBase = new THREE.Mesh( base );
-	//	var mallaSoporte = new THREE.Mesh( soporte);
-	//	var mallaSoporte2 = new THREE.Mesh( soporte2);
+		var mallaBase = new THREE.Mesh( base );
+		var mallaSoporte = new THREE.Mesh( soporte);
+		var mallaSoporte2 = new THREE.Mesh( soporte2);
 		
 		
 	mallaRueda1.position.set( 0, 0, 0);
