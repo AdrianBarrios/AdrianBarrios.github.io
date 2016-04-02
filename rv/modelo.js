@@ -12,7 +12,7 @@ function setup(){
 	var rueda = new THREE.ExtrudeGeometry( arcShape, extrudeSettings );
 	 var base = new THREE.BoxGeometry( 50,20,98 );
 	var soporte = new THREE.BoxGeometry( 10,10,70);
-	var soporte2 = new THREE.CylinderGeometry(5,5,25 );
+	var soporte2 = new THREE.CylinderGeometry(5,5.25 );
 
 var material = new THREE.MeshNormalMaterial();	
 		var mallaRueda1 = new THREE.Mesh( rueda );
