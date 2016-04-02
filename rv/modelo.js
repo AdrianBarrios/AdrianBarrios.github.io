@@ -26,7 +26,7 @@ var material = new THREE.MeshNormalMaterial();
 	mallaBase.position.set( 0, 0, 50);
 	mallaRueda2.position.set( 0, 0, 100);
 	mallaSoporte.position.set( 0, 0, -110);
-	mallaSoporte2.position.set( 0, 50, 60 );
+	mallaSoporte2.position.set( 0, 50, 40 );
 	
 	
 	var robot = new THREE.Geometry();
