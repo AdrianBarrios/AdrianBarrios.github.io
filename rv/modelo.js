@@ -11,7 +11,7 @@ function setup(){
 	var extrudeSettings = { amount: 8, bevelEnabled: true, bevelSegments: 2, steps: 2, bevelSize: 1, bevelThickness: 1 };
 	var rueda = new THREE.ExtrudeGeometry( arcShape, extrudeSettings );
 	 var base = new THREE.BoxGeometry( 50,20,98 );
-	var soporte = new THREE.CylinderGeometry(10,10,50 );
+	var soporte = new THREE.BoxGeometry( 10,10,10);
 	var soporte2 = new THREE.CylinderGeometry(5,5.25 );
 
 var material = new THREE.MeshNormalMaterial();	
@@ -21,7 +21,7 @@ var material = new THREE.MeshNormalMaterial();
 		var mallaSoporte = new THREE.Mesh( soporte);
 		var mallaSoporte2 = new THREE.Mesh( soporte2);
 		
-	mallaSoporte.rotation.x = (47)	
+	
 	mallaRueda1.position.set( 0, 0, 0);
 	mallaBase.position.set( 0, 0, 50);
 	mallaRueda2.position.set( 0, 0, 100);
