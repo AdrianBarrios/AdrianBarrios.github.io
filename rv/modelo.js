@@ -10,7 +10,7 @@ function setup(){
 
 	var extrudeSettings = { amount: 8, bevelEnabled: true, bevelSegments: 2, steps: 2, bevelSize: 1, bevelThickness: 1 };
 	var rueda = new THREE.ExtrudeGeometry( arcShape, extrudeSettings );
-	 var base = new THREE.BoxGeometry( 50,80,100 );
+	 var base = new THREE.BoxGeometry( 50,20,100 );
 	var soporte = new THREE.CylinderGeometry(10,10,50 );
 	var soporte2 = new THREE.CylinderGeometry(5,5.25 );
 
