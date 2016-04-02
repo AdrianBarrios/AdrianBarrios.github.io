@@ -27,14 +27,14 @@ function base(){
 }
 base.prototype = new THREE.Object3D();
 
+
 function setup(){
 	var material = new THREE.MeshNormalMaterial();
+		var soporte = new THREE.BoxGeometry( 10,10,70);
+		var soporte2 = new THREE.CylinderGeometry(5,5.25 );
 
-		var Soporte = new THREE.Mesh( 10,10,70 );
-		var Soporte2 = new THREE.Mesh(5,5.25);
-		
-		var mallaSoporte = new THREE.Mesh( Soporte, material);
-		var mallaSoporte2 = new THREE.Mesh( Soporte2, material);
+		var mallaSoporte = new THREE.Mesh( soporte, material);
+		var mallaSoporte2 = new THREE.Mesh( soporte2, material);
 		mallaBase = new base();
 		
 		mallaRueda1 = new  rueda ();
