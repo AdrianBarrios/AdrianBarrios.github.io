@@ -23,8 +23,8 @@ var material = new THREE.MeshNormalMaterial();
 		
 		
 	mallaRueda1.position.set( 0, 0, 0);
-	mallaBase.position.set( 10, 0, 30);
-	mallaRueda2.position.set( 0, 0, 80);
+	mallaBase.position.set( 10, 0, 50);
+	mallaRueda2.position.set( 0, 0, 100);
 	mallaSoporte.position.set( 0, 0, -200);
 	mallaSoporte2.position.set( 50, 0, -250 );
 	
