@@ -21,7 +21,7 @@ var material = new THREE.MeshNormalMaterial();
 		var mallaSoporte = new THREE.Mesh( soporte);
 		var mallaSoporte2 = new THREE.Mesh( soporte2);
 		
-	mallaSoporte.rotation.x = (50)	
+	mallaSoporte.rotation.x = (47)	
 	mallaRueda1.position.set( 0, 0, 0);
 	mallaBase.position.set( 0, 0, 50);
 	mallaRueda2.position.set( 0, 0, 100);
