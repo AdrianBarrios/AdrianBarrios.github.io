@@ -29,7 +29,7 @@ base.prototype = new THREE.Object3D();
 
 
 function setup(){
-	var material = new THREE.MeshPhongMaterial({color: 0x00ff00 });
+	var material = new THREE.MeshPhongMaterial({color: 0xff0000 });
 
 		var soporte = new THREE.BoxGeometry( 10,10,70);
 		var soporte2 = new THREE.CylinderGeometry(5,5.25 );
