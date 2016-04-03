@@ -10,8 +10,9 @@ function rueda(){
 
 	this.extrudeSettings = { amount: 8, bevelEnabled: true, bevelSegments: 2, steps: 2, bevelSize: 1, bevelThickness: 1 };
 	
-	this.rueda = new THREE.ExtrudeGeometry( this.arcShape, this.extrudeSettings );
-	this.material = new THREE.MeshNormalMaterial({ color: 0x0000ff});
+	this.rueda = new THREE.ExtrudeGeometry( this.arcShape, this.extrudeSettings, new THREE.MeshNormalMaterial({ color: 0x0000ff }) );
+
+	this.material = new THREE.MeshNormalMaterial({ color: 0x00ff00});
 	this.mallaRueda = new THREE.Mesh( this.rueda, this.material );
 
 	this.add(this.mallaRueda);
@@ -69,7 +70,7 @@ function setup(){
 	escena.add(luzPuntual);
 
 camara = new THREE.PerspectiveCamera();
-	camara.position.z = 350;
+	camara.position.z = 500;
 
 	renderer = new THREE.WebGLRenderer();
 	renderer.setSize( window.innerHeight*.95, window.innerHeight*.95 );
