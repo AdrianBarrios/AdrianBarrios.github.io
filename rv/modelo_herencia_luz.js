@@ -22,7 +22,7 @@ function rueda(){
 	
 function base(){
 	THREE.Object3D.call(this);
-	this.malla = new THREE.Mesh( new THREE.BoxGeometry( 50,20,98 ), new THREE.MeshPhongMaterial({color: 0x0000ff });
+	this.malla = new THREE.Mesh( new THREE.BoxGeometry( 50,20,98 ), new THREE.MeshPhongMaterial({color: 0x0000ff }));
 
 	this.add(this.malla);
 }
