@@ -55,7 +55,7 @@ function setup(){
 
 	mallaRobot = new THREE.Mesh( robot , material );
 
-	var luzPuntual = new THREE.PointLight( 0xffffff );
+	var luzPuntual = new THREE.PointLight( 0xffff00 );
   	luzPuntual.position.x = 0;
   	luzPuntual.position.y = 0;
   	luzPuntual.position.z = 500;
@@ -69,7 +69,7 @@ function setup(){
 	escena.add(luzPuntual);
 
 camara = new THREE.PerspectiveCamera();
-	camara.position.z = 500;
+	camara.position.z = 400;
 
 	renderer = new THREE.WebGLRenderer();
 	renderer.setSize( window.innerHeight*.95, window.innerHeight*.95 );
