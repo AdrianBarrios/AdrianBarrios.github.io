@@ -21,7 +21,7 @@ function rueda(){
 	
 function base(){
 	THREE.Object3D.call(this);
-	this.malla = new THREE.Mesh( new THREE.BoxGeometry( 50,20,98 ), new THREE.MeshNormalMaterial() );
+	this.malla = new THREE.Mesh( new THREE.BoxGeometry( 50,20,98 ), new THREE.MeshNormalMaterial({ color: 0x0000ff }) );
 
 	this.add(this.malla);
 }
@@ -29,7 +29,7 @@ base.prototype = new THREE.Object3D();
 
 
 function setup(){
-	var material = new THREE.MeshPhongMaterial({color: 0x0000FF });
+	var material = new THREE.MeshPhongMaterial({color: 0x0000ff });
 
 		var soporte = new THREE.BoxGeometry( 10,10,70);
 		var soporte2 = new THREE.CylinderGeometry(5,5.25 );
@@ -65,6 +65,8 @@ function setup(){
 	escena.add( mallaRueda1 );
 	escena.add( mallaRueda2 );
 	escena.add( mallaBase);
+
+	escena.add(luzPuntual);
 
 camara = new THREE.PerspectiveCamera();
 	camara.position.z = 500;
