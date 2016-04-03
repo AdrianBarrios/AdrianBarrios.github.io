@@ -13,7 +13,7 @@ function rueda(){
 	this.rueda = new THREE.ExtrudeGeometry( this.arcShape, this.extrudeSettings );
 
 	this.material = new THREE.MeshNormalMaterial({ color: 0x00ff00});
-	this.mallaRueda = new THREE.Mesh( this.rueda,  new THREE.MeshNormalMaterial({ color: 0x0000ff }) );
+	this.mallaRueda = new THREE.Mesh( this.rueda, this.material );
 
 	this.add(this.mallaRueda);
 
