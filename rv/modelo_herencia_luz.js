@@ -55,10 +55,10 @@ function setup(){
 
 	mallaRobot = new THREE.Mesh( robot , material );
 
-	var luzPuntual = new THREE.PointLight( 0xffff00 );
+	var luzPuntual = new THREE.PointLight( 0xffffff );
   	luzPuntual.position.x = 0;
-  	luzPuntual.position.y = 0;
-  	luzPuntual.position.z = 500;
+  	luzPuntual.position.y = 500;
+  	luzPuntual.position.z = 0;
 
 	escena = new THREE.Scene();
 	escena.add( mallaRobot );
