@@ -11,7 +11,7 @@ function rueda(){
 	this.extrudeSettings = { amount: 8, bevelEnabled: true, bevelSegments: 2, steps: 2, bevelSize: 1, bevelThickness: 1 };
 	
 	this.rueda = new THREE.ExtrudeGeometry( this.arcShape, this.extrudeSettings );
-	this.material = new THREE.MeshNormalMaterial({ color: 0x00ff00});
+	this.material = new THREE.MeshNormalMaterial({ color: 0x0000ff});
 	this.mallaRueda = new THREE.Mesh( this.rueda, this.material );
 
 	this.add(this.mallaRueda);
@@ -29,7 +29,7 @@ base.prototype = new THREE.Object3D();
 
 
 function setup(){
-	var material = new THREE.MeshPhongMaterial({color: 0x00ff00 });
+	var material = new THREE.MeshPhongMaterial({color: 0x0000ff });
 
 		var soporte = new THREE.BoxGeometry( 10,10,70);
 		var soporte2 = new THREE.CylinderGeometry(5,5.25 );
