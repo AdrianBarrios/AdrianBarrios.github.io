@@ -10,10 +10,10 @@ function rueda(){
 
 	this.extrudeSettings = { amount: 8, bevelEnabled: true, bevelSegments: 2, steps: 2, bevelSize: 1, bevelThickness: 1 };
 	
-	this.rueda = new THREE.ExtrudeGeometry( this.arcShape, this.extrudeSettings, new THREE.MeshNormalMaterial({ color: 0x0000ff }) );
+	this.rueda = new THREE.ExtrudeGeometry( this.arcShape, this.extrudeSettings );
 
 	this.material = new THREE.MeshNormalMaterial({ color: 0x00ff00});
-	this.mallaRueda = new THREE.Mesh( this.rueda, this.material );
+	this.mallaRueda = new THREE.Mesh( this.rueda,  new THREE.MeshNormalMaterial({ color: 0x0000ff }) );
 
 	this.add(this.mallaRueda);
 
