@@ -1,7 +1,7 @@
 function rueda(){
 	THREE.Object3D.call(this);
 	THREE.ImageUtils.crossOrigin = '';
-	this.textura = 	THREE.ImageUtils.loadTexture('images/clouds.jpg') } );
+	this.textura = 	THREE.ImageUtils.loadTexture('http://threejs.org/examples/textures/brick_diffuse.jpg');
 
 	this.arcShape = new THREE.Shape();
 				this.arcShape.moveTo( 50, 10 );
