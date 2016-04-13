@@ -1,3 +1,9 @@
+function Sensor (posotion, direction) {
+	THREE.Raycaster.call(this, posotion, direction);
+	this.colision = false;
+}
+Sensor.prototype = new THREE.Raycaster();
+
 function Robot(size,x,y){
 	Agent.call(this,x,y);
 }
