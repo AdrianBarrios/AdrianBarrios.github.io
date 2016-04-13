@@ -6,7 +6,7 @@ Sensor.prototype = new THREE.Raycaster();
 
 function Robot(size,x,y){
 	Agent.call(this,x,y);
-}
+
 
 	this.sensor=new Sensor();
 	this.actuato= new THREE.Mesh(
