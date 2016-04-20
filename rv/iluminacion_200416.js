@@ -1,5 +1,5 @@
 function setup() {
-THREE.ImageUtilis.crossOrigin = '';
+THREE.ImageUtils.crossOrigin = '';
 malla	= new THREE.Mesh( new THREE.SphereGeometry(1),
 	  new THREE.MeshPhongMaterial({color: 0xffffff}));
 
