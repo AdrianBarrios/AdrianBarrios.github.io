@@ -1,6 +1,6 @@
 function setup() {
 THREE.ImageUtilis.crossOrigin = '';
-malla	= new THREE.Mesh( new THREE.SphereGeometry(1)
+malla	= new THREE.Mesh( new THREE.SphereGeometry(1),
 	  new THREE.MeshPhongMaterial({color: 0xffffff}));
 
 malla.position.y += 2;
