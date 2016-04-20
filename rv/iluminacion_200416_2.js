@@ -1,15 +1,17 @@
 function setup() {
-THREE.ImageUtilis.crossOrigin = '';
-var textura = THREE.ImageUtils.loadTexture('http://threejs.org/examples/text')
-malla	= new THREE.Mesh( new THREE.SphereGeometry(1)
-	  new THREE.MeshPhongMaterial({map: textura}));
+THREE.ImageUtils.crossOrigin = '';
+var textura = THREE.ImageUtils.loadTexture('http://threejs.org/examples/textures/planets/earth_atmos_2048.jpg');
+malla	= new THREE.Mesh( new THREE.SphereGeometry(1),
+	  new THREE.MeshPhongMaterial({color: 0xffffff}));
 
 malla.position.y += 2;
 malla.position.z += 0.25;
 
 var base = new THREE.Mesh( new THREE.BoxGeometry(5,.1,5),
 			   new THREE.MeshLambertMaterial({color: 0x00ff00}));
-var iluminacion = new THREE.AmbientLight(0xffffff);
+			   
+var iluminacion = new THREE.PointLight(0xffffff);
+iluminacion.position.y = 20;
 
 
 escena = new THREE.Scene();
@@ -36,3 +38,9 @@ renderer.render(escena, camara);
 var camara,escena,renderer,malla;
 setup();
 loop();
+
+
+
+
+
+
