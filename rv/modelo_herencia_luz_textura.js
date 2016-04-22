@@ -64,26 +64,14 @@ function setup(){
   	luzPuntual.position.z = 500;
   	
   	
- cubo = new THREE.Mesh(new THREE.BoxGeometry(1,20,4), new THREE.MeshNormalMaterial());
- cubo2 = new THREE.Mesh(new THREE.BoxGeometry(1,20,4), new THREE.MeshNormalMaterial());
- cubo3 = new THREE.Mesh(new THREE.BoxGeometry(21,1,4), new THREE.MeshNormalMaterial());
- cubo4 = new THREE.Mesh(new THREE.BoxGeometry(21,1,4), new THREE.MeshNormalMaterial());
- 
- cubo.position.x=10;
- cubo2.position.x=-10;
- cubo3.position.y=10;
- cubo4.position.y=-10;
- 
+
 
 	escena = new THREE.Scene();
 	escena.add( mallaRobot );
 	escena.add( mallaRueda1 );
 	escena.add( mallaRueda2 );
 	escena.add( mallaBase);
-	escena.add(cubo);
- 	escena.add(cubo2);
- 	escena.add(cubo3);
- 	escena.add(cubo4);
+
 	escena.add(luzPuntual);
 
 camara = new THREE.PerspectiveCamera();
@@ -95,17 +83,9 @@ camara = new THREE.PerspectiveCamera();
 }
 
 function loop(){
-	 obstaculo1 = raycaster1.intersectObject(cubo,true);
- obstaculo2 = raycaster2.intersectObject(cubo2,true);
- obstaculo3 = raycaster3.intersectObject(cubo3,true);
- obstaculo4 = raycaster4.intersectObject(cubo4,true);
- 
+
 
 	requestAnimationFrame( loop );
- raycaster1.set(robot.position, new THREE.Vector3(Math.cos(angulo),Math.sin(angulo),0));
- raycaster2.set(robot.position, new THREE.Vector3(Math.cos(angulo),Math.sin(angulo),0));
- raycaster3.set(robot.position, new THREE.Vector3(Math.cos(angulo),Math.sin(angulo),0));
- raycaster4.set(robot.position, new THREE.Vector3(Math.cos(angulo),Math.sin(angulo),0));	
 
 	renderer.render( escena, camara );
 }
