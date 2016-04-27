@@ -33,6 +33,11 @@ base.prototype = new THREE.Object3D();
 
 function setup(){
 	var material = new THREE.MeshPhongMaterial({color: 0x0000ff });
+	
+		cubo1 = new THREE.Mesh(  new THREE.BoxGeometry(1,1,1),
+                         new THREE.MeshNormalMaterial());
+		cubo2 = new THREE.Mesh(  new THREE.BoxGeometry(1,1,1),
+                         new THREE.MeshNormalMaterial());
 
 		var soporte = new THREE.BoxGeometry( 10,10,70);
 		var soporte2 = new THREE.CylinderGeometry(5,5.25 );
@@ -62,55 +67,44 @@ function setup(){
   	luzPuntual.position.x = 0;
   	luzPuntual.position.y = 0;
   	luzPuntual.position.z = 500;
-  	
-  	
- cubo = new THREE.Mesh(new THREE.BoxGeometry(1,20,4), new THREE.MeshNormalMaterial());
- cubo2 = new THREE.Mesh(new THREE.BoxGeometry(1,20,4), new THREE.MeshNormalMaterial());
- cubo3 = new THREE.Mesh(new THREE.BoxGeometry(21,1,4), new THREE.MeshNormalMaterial());
- cubo4 = new THREE.Mesh(new THREE.BoxGeometry(21,1,4), new THREE.MeshNormalMaterial());
- 
- cubo.position.x=10;
- cubo2.position.x=-10;
- cubo3.position.y=10;
- cubo4.position.y=-10;
- 
-
-	escena = new THREE.Scene();
+  
+  	camara = new THREE.PerspectiveCamera();
+	camara.position.z = 500;
+	
+	raycaster1 = new THREE.Raycaster( pelota.position, new THREE.Vector3(1,0,0));
+  	raycaster2 = new THREE.Raycaster( pelota.position, new THREE.Vector3(-1,0,0));	
+  	escena = new THREE.Scene();
 	escena.add( mallaRobot );
 	escena.add( mallaRueda1 );
 	escena.add( mallaRueda2 );
 	escena.add( mallaBase);
-	escena.add(cubo);
- 	escena.add(cubo2);
- 	escena.add(cubo3);
- 	escena.add(cubo4);
 	escena.add(luzPuntual);
-
-camara = new THREE.PerspectiveCamera();
-	camara.position.z = 500;
-
+	
 	renderer = new THREE.WebGLRenderer();
 	renderer.setSize( window.innerHeight*.95, window.innerHeight*.95 );
 	document.body.appendChild( renderer.domElement );
+	step = 0.01;
 }
-
 function loop(){
-	 obstaculo1 = raycaster1.intersectObject(cubo,true);
- obstaculo2 = raycaster2.intersectObject(cubo2,true);
- obstaculo3 = raycaster3.intersectObject(cubo3,true);
- obstaculo4 = raycaster4.intersectObject(cubo4,true);
- 
 
-	requestAnimationFrame( loop );
- raycaster1.set(robot.position, new THREE.Vector3(Math.cos(angulo),Math.sin(angulo),0));
- raycaster2.set(robot.position, new THREE.Vector3(Math.cos(angulo),Math.sin(angulo),0));
- raycaster3.set(robot.position, new THREE.Vector3(Math.cos(angulo),Math.sin(angulo),0));
- raycaster4.set(robot.position, new THREE.Vector3(Math.cos(angulo),Math.sin(angulo),0));	
+ obstaculo1 = raycaster1.intersectObject(cubo1);
+ obstaculo2 = raycaster2.intersectObject(cubo2);
+   if((obstaculo1.length> 0 && (obstaculo1[0].distance<= 0.5)) ||
+    (obstaculo2.length> 0 && (obstaculo2[0].distance<= 0.5)))
+  step = -step;
 
-	renderer.render( escena, camara );
+  robot.position.x += step;
+  raycaster1.set(robot.position, new THREE.Vector3(1,0,0) );
+  raycaster2.set(robot.position, new THREE.Vector3(-1,0,0) );
+  
+  renderer.render(escena,camara);
+  requestAnimationFrame(loop);
 }
-var mallaRobot, camara, escena, renderer;
+var cubo1, cubo2, mallaRobot, camara, escena, renderer;
 var mallaRueda1, mallaRueda2, mallaBase;
+var raycaster1,raycaster2, step;
+var obstaculo1, obstaculo2;
 
 setup();
 loop();
+
