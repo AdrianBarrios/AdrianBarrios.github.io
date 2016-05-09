@@ -61,8 +61,8 @@ function setup(){
   	luzPuntual.position.z = 500;
   
   	camara = new THREE.PerspectiveCamera();
-	camara.position.z = 500;
-	
+	camara.position.y = 500;
+	camara.rotation.x = 1.57;
 	raycaster1 = new THREE.Raycaster( mallaRueda1.position, new THREE.Vector3(1,0,0));
   	raycaster2 = new THREE.Raycaster( mallaRueda2.position, new THREE.Vector3(-1,0,0));	
   
