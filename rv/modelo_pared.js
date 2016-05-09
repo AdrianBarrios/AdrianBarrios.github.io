@@ -63,8 +63,8 @@ function setup(){
   	camara = new THREE.PerspectiveCamera();
 	camara.position.z = 500;
 	
-	raycaster1 = new THREE.Raycaster( rueda.position, new THREE.Vector3(1,0,0));
-  	raycaster2 = new THREE.Raycaster( rueda.position, new THREE.Vector3(-1,0,0));	
+	raycaster1 = new THREE.Raycaster( mallaRueda1.position, new THREE.Vector3(1,0,0));
+  	raycaster2 = new THREE.Raycaster( mallaRueda2.position, new THREE.Vector3(-1,0,0));	
   
 	escena.add(mallaRueda1);
 	escena.add(mallaRueda2);
