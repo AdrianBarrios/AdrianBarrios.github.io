@@ -66,7 +66,7 @@ function setup(){
 	raycaster1 = new THREE.Raycaster( rueda.position, new THREE.Vector3(1,0,0));
   	raycaster2 = new THREE.Raycaster( rueda.position, new THREE.Vector3(-1,0,0));	
   
-	escena.add( mallaRueda1 );
+//	escena.add( mallaRueda1 );
 	escena.add( mallaRueda2 );
 	escena.add( mallaBase);
 	escena.add(luzPuntual);
