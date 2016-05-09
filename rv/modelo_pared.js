@@ -55,14 +55,6 @@ function setup(){
 		mallaSoporte.position.set( 0, 100, 50);
 		mallaSoporte2.position.set( 0, 50, 53 );
 		
-		var robot = new THREE.Geometry();
-
-	THREE.GeometryUtils.merge( robot, mallaSoporte );
-	THREE.GeometryUtils.merge( robot, mallaSoporte2 );
-	THREE.GeometryUtils.merge( robot, mallaBase );
-
-	mallaRobot = new THREE.Mesh( robot , material );
-
 	var luzPuntual = new THREE.PointLight( 0xffffff );
   	luzPuntual.position.x = 0;
   	luzPuntual.position.y = 0;
@@ -73,12 +65,14 @@ function setup(){
 	
 	raycaster1 = new THREE.Raycaster( rueda.position, new THREE.Vector3(1,0,0));
   	raycaster2 = new THREE.Raycaster( rueda.position, new THREE.Vector3(-1,0,0));	
-  	escena = new THREE.Scene();
-	escena.add( mallaRobot );
+  
 	escena.add( mallaRueda1 );
 	escena.add( mallaRueda2 );
 	escena.add( mallaBase);
 	escena.add(luzPuntual);
+	escena.add(mallaSoporte);
+	escena.add(mallaSoporte2);
+	
 	
 	renderer = new THREE.WebGLRenderer();
 	renderer.setSize( window.innerHeight*.95, window.innerHeight*.95 );
@@ -93,7 +87,9 @@ function loop(){
     (obstaculo2.length> 0 && (obstaculo2[0].distance<= 0.5)))
   step = -step;
 
-  robot.position.x += step;
+  mallaRueda.position.x += step;
+  mallaRueda2.position.x += step;
+  
   raycaster1.set(robot.position, new THREE.Vector3(1,0,0) );
   raycaster2.set(robot.position, new THREE.Vector3(-1,0,0) );
   
