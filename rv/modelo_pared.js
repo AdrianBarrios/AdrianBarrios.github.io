@@ -95,9 +95,6 @@ function loop(){
   mallaRueda1.position.x += step;
   mallaRueda2.position.x += step;
   
-  raycaster1.set(robot.position, new THREE.Vector3(1,0,0) );
-  raycaster2.set(robot.position, new THREE.Vector3(-1,0,0) );
-  
   renderer.render(escena,camara);
   requestAnimationFrame(loop);
 }
