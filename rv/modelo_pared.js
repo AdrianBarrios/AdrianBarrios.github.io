@@ -66,6 +66,7 @@ function setup(){
 	raycaster1 = new THREE.Raycaster( mallaRueda1.position, new THREE.Vector3(1,0,0));
   	raycaster2 = new THREE.Raycaster( mallaRueda2.position, new THREE.Vector3(-1,0,0));	
   
+  	escena = new THREE.Scene(); 
 	escena.add(mallaRueda1);
 	escena.add(mallaRueda2);
 	escena.add( mallaBase);
@@ -91,7 +92,7 @@ function loop(){
     (obstaculo2.length> 0 && (obstaculo2[0].distance<= 0.5)))
   step = -step;
 
-  mallaRueda.position.x += step;
+  mallaRueda1.position.x += step;
   mallaRueda2.position.x += step;
   
   raycaster1.set(robot.position, new THREE.Vector3(1,0,0) );
