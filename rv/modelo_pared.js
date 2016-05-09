@@ -72,6 +72,10 @@ function setup(){
 	escena.add(luzPuntual);
 	escena.add(mallaSoporte);
 	escena.add(mallaSoporte2);
+	escena.add(camara);
+	escena.add(cubo1);
+	escena.add(cubo2);
+	
 	
 	
 	renderer = new THREE.WebGLRenderer();
