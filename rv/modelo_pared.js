@@ -55,7 +55,7 @@ function setup(){
 		mallaSoporte.position.set( 0, 100, 50);
 		mallaSoporte2.position.set( 0, 50, 53 );
 		
-	var luzPuntual = new THREE.PointLight( 0xffffff );
+	var luzPuntual = new THREE.PointLight( 0xffff00 );
   	luzPuntual.position.x = 0;
   	luzPuntual.position.y = -500;
   	luzPuntual.position.z = 0;
