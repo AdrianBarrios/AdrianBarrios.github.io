@@ -65,7 +65,10 @@ function setup(){
 	camara.rotation.x = -1.57;
 	raycaster1 = new THREE.Raycaster( mallaRueda1.position, new THREE.Vector3(1,0,0));
   	raycaster2 = new THREE.Raycaster( mallaRueda2.position, new THREE.Vector3(-1,0,0));	
-  
+  	raycaster3 = new THREE.Raycaster( mallaSoporte.position, new THREE.Vector3(-1,0,0));
+  	
+  	
+  	
   	escena = new THREE.Scene(); 
 	escena.add(mallaRueda1);
 	escena.add(mallaRueda2);
@@ -82,7 +85,7 @@ function setup(){
 	renderer = new THREE.WebGLRenderer();
 	renderer.setSize( window.innerHeight*.95, window.innerHeight*.95 );
 	document.body.appendChild( renderer.domElement );
-	step = 0.01;
+	step = 15;
 }
 function loop(){
 
@@ -94,15 +97,15 @@ function loop(){
 
   mallaRueda1.position.x += step;
   mallaRueda2.position.x += step;
- // mallaSoporte.position.x += step;
-  mallaSoporte2.position.x += step;
+  mallaSoporte.position.x += step;
+//  mallaSoporte2.position.x += step;
   
   renderer.render(escena,camara);
   requestAnimationFrame(loop);
 }
 var cubo1, cubo2, mallaRobot, camara, escena, renderer;
-var mallaRueda1, mallaRueda2, mallaBase,mallaSoporte,mallaSoporte2;
-var raycaster1,raycaster2, step;
+var mallaRueda1, mallaRueda2, mallaBase, mallaSoporte, mallaSoporte2;
+var raycaster1,raycaster2, raycaster3, step;
 var obstaculo1, obstaculo2;
 
 setup();
