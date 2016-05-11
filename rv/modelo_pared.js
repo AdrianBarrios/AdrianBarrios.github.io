@@ -65,7 +65,7 @@ function setup(){
 	camara.rotation.x = -1.57;
 	raycaster1 = new THREE.Raycaster( mallaRueda1.position, new THREE.Vector3(1,0,0));
   	raycaster2 = new THREE.Raycaster( mallaRueda2.position, new THREE.Vector3(-1,0,0));	
-  	raycaster3 = new THREE.Raycaster( mallaSoporte.position, new THREE.Vector3(-1,0,0));
+  	raycaster3 = new THREE.Raycaster( mallaSoporte.position, new THREE.Vector3(2,0,0));
   	
   	
   	
