@@ -94,7 +94,7 @@ function loop(){
 
   mallaRueda1.position.x += step;
   mallaRueda2.position.x += step;
-  mallaSoporte.position.x += step;
+ // mallaSoporte.position.x += step;
   mallaSoporte2.position.x += step;
   
   renderer.render(escena,camara);
