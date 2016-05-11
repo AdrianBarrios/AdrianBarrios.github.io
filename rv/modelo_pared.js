@@ -101,7 +101,7 @@ function loop(){
   requestAnimationFrame(loop);
 }
 var cubo1, cubo2, mallaRobot, camara, escena, renderer;
-var mallaRueda1, mallaRueda2, mallaBase;
+var mallaRueda1, mallaRueda2, mallaBase,mallaSoporte,mallaSoporte2;
 var raycaster1,raycaster2, step;
 var obstaculo1, obstaculo2;
 
