@@ -82,7 +82,7 @@ function setup(){
   	camara = new THREE.PerspectiveCamera();
 	camara.position.y = 500;
 	camara.rotation.x = -1.57;
-	raycaster1 = new THREE.Raycaster( mallaRueda1.position, new THREE.Vector3(1,0,0));
+	raycaster = new THREE.Raycaster( mallaRueda1.position, new THREE.Vector3(1,0,0));
   	
   	
   	
