@@ -59,11 +59,11 @@ function setup(){
 		mallaSoporte2.position.set( 0, 50, 53 );
 		
 	var forma = new THREE.Geometry();
-	THREE.GeometryUtils.merge(Segway,mallaRueda1 );
-	THREE.GeometryUtils.merge(Segway,mallaRueda2 );
-	THREE.GeometryUtils.merge(Segway,mallaSoporte );
-	THREE.GeometryUtils.merge(Segway,mallaSoporte2 );	
-	THREE.GeometryUtils.merge(Segway,mallaBase );	
+	THREE.GeometryUtils.merge(forma,mallaRueda1 );
+	THREE.GeometryUtils.merge(forma,mallaRueda2 );
+	THREE.GeometryUtils.merge(forma,mallaSoporte );
+	THREE.GeometryUtils.merge(forma,mallaSoporte2 );	
+	THREE.GeometryUtils.merge(forma,mallaBase );	
 		
 
 	var material = new THREE.MeshNormalMaterial();
