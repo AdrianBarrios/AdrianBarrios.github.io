@@ -13,7 +13,7 @@ function rueda(){
 
 	this.extrudeSettings = { amount: 8, bevelEnabled: true, bevelSegments: 2, steps: 2, bevelSize: 1, bevelThickness: 1 };
 	
-	this.rueda = new THREE.ExtrudeGeometry( this.arcShape, this.extrudeSettings );
+	var rueda = new THREE.ExtrudeGeometry( this.arcShape, this.extrudeSettings );
 	this.material = new THREE.MeshPhongMaterial({ map: this.textura});
 	this.mallaRueda = new THREE.Mesh( this.rueda, this.material );
 
@@ -47,10 +47,10 @@ function setup(){
 
 		var mallaSoporte = new THREE.Mesh( soporte, material);
 		var mallaSoporte2 = new THREE.Mesh( soporte2, material);
-		mallaBase = new base();
+	//	mallaBase = new base();
 		
-		mallaRueda1 = new  rueda ();
-		mallaRueda2 = new  rueda ();
+	//	mallaRueda1 = new  rueda ();
+	//	mallaRueda2 = new  rueda ();
 
 		mallaRueda1.position.set( 0, 0, 0);
 		mallaBase.position.set( 0, 0, 50); 
