@@ -160,6 +160,8 @@ if (dir==1){
 
 var escena, camara, renderer, Pared1, Pared2,Pared3,Pared4, wally;
 var Obs1,Obs2,Obs3,Obs4;
+var dir
+dir = 1;
 var cubo1, cubo2, mallaRobot, camara, escena, renderer;
 var mallaRueda1, mallaRueda2, mallaBase, mallaSoporte, mallaSoporte2;
 var raycaster1,raycaster2, raycaster3, step;
