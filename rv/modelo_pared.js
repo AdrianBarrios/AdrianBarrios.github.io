@@ -53,7 +53,7 @@ function setup(){
 		mallaRueda2 = new  rueda ();
 
 		mallaRueda1.position.set( 0, 0, 0);
-		mallaBase.position.set( 0, 0, 50);
+		mallaBase.position.set( 0, 0, 50); 
 		mallaRueda2.position.set( 0, 0, 100);
 		mallaSoporte.position.set( 0, 100, 50);
 		mallaSoporte2.position.set( 0, 50, 53 );
