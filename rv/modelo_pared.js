@@ -59,11 +59,11 @@ function setup(){
 		mallaSoporte2.position.set( 0, 50, 53 );
 		
 	var forma = new THREE.Geometry();
-	THREE.GeometryUtils.merge(forma,mallaRueda1 );
-	THREE.GeometryUtils.merge(forma,mallaRueda2 );
-	THREE.GeometryUtils.merge(forma,mallaSoporte );
-	THREE.GeometryUtils.merge(forma,mallaSoporte2 );	
-	THREE.GeometryUtils.merge(forma,mallaBase );	
+	THREE.GeometryUtils.merge(forma,mallaRueda1);
+	THREE.GeometryUtils.merge(forma,mallaRueda2);
+	THREE.GeometryUtils.merge(forma,mallaSoporte);
+	THREE.GeometryUtils.merge(forma,mallaSoporte2);	
+	THREE.GeometryUtils.merge(forma,mallaBase);	
 		
 
 	var material = new THREE.MeshNormalMaterial();
@@ -82,7 +82,7 @@ function setup(){
   	camara = new THREE.PerspectiveCamera();
 	camara.position.y = 500;
 	camara.rotation.x = -1.57;
-	raycaster = new THREE.Raycaster( mallaRueda1.position, new THREE.Vector3(1,0,0));
+	raycaster = new THREE.Raycaster(Segway.position, new THREE.Vector3(1,0,0));
   	
   	
   	
