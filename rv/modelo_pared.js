@@ -1,7 +1,7 @@
 function rueda(){
 	THREE.Object3D.call(this);
-	THREE.ImageUtils.crossOrigin = '';
-	this.textura = 	THREE.ImageUtils.loadTexture('http://threejs.org/examples/textures/brick_diffuse.jpg');
+	// this.textura = 	THREE.ImageUtils.loadTexture('cuadros.jpg');
+	// THREE.ImageUtils.crossOrigin = '';
 
 	this.arcShape = new THREE.Shape();
 				this.arcShape.moveTo( 50, 10 );
@@ -14,65 +14,80 @@ function rueda(){
 	this.extrudeSettings = { amount: 8, bevelEnabled: true, bevelSegments: 2, steps: 2, bevelSize: 1, bevelThickness: 1 };
 	
 	this.rueda = new THREE.ExtrudeGeometry( this.arcShape, this.extrudeSettings );
-	this.material = new THREE.MeshPhongMaterial({ map: this.textura});
+	// this.material = new THREE.MeshPhongMaterial({ map: this.textura});
+	this.material = new THREE.MeshNormalMaterial();
 	this.mallaRueda = new THREE.Mesh( this.rueda, this.material );
 
 	this.add(this.mallaRueda);
 
 }
 	rueda.prototype = new THREE.Object3D();
+
+
+
+
+
+
+
+
 	
 function base(){
 	THREE.Object3D.call(this);
-	this.malla = new THREE.Mesh( new THREE.BoxGeometry( 50,20,98 ), new THREE.MeshNormalMaterial({ color: 0x0000ff }) );
+	this.malla = new THREE.Mesh( new THREE.BoxGeometry( 50,20,98 ), new THREE.MeshNormalMaterial() );
 
 	this.add(this.malla);
 }
 base.prototype = new THREE.Object3D();
 
 
+
+
+
+
+
+
 function setup(){
-	var material = new THREE.MeshPhongMaterial({color: 0x0000ff });
+	var material = new THREE.MeshNormalMaterial();
 	
 	
 	
-	Pared1= new THREE.Mesh(new THREE.BoxGeometry(3,10,100),new THREE.MeshPhongMaterial({color: '#00ff00'}));
-	Pared2= new THREE.Mesh(new THREE.BoxGeometry(100,10,3),new THREE.MeshPhongMaterial({color: '#ff0000'}));
-	Pared3= new THREE.Mesh(new THREE.BoxGeometry(3,10,100),new THREE.MeshPhongMaterial({color: '#0000ff'}));	
-	Pared4= new THREE.Mesh(new THREE.BoxGeometry(100,10,3),new THREE.MeshPhongMaterial({color: '#aacc00'}));
+	Pared1= new THREE.Mesh(new THREE.BoxGeometry(3,10,300),new THREE.MeshNormalMaterial());
+	Pared2= new THREE.Mesh(new THREE.BoxGeometry(300,10,3),new THREE.MeshNormalMaterial());
+	Pared3= new THREE.Mesh(new THREE.BoxGeometry(3,10,300),new THREE.MeshNormalMaterial());	
+	Pared4= new THREE.Mesh(new THREE.BoxGeometry(300,10,3),new THREE.MeshNormalMaterial());
 	
 
-		var soporte = new THREE.BoxGeometry( 10,10,70);
-		var soporte2 = new THREE.CylinderGeometry(5,5.25 );
+		var formaSoporte1 = new THREE.BoxGeometry( 10,10,70);
+		var formaSoporte2 = new THREE.CylinderGeometry(5,5.25 );
 
-		var mallaSoporte = new THREE.Mesh( soporte, material);
-		var mallaSoporte2 = new THREE.Mesh( soporte2, material);
-		mallaBase = new base();
 		
-		mallaRueda1 = new  rueda ();
-		mallaRueda2 = new  rueda ();
+		var Soporte1 = new THREE.Mesh(formaSoporte1, material);
+		var Soporte2 = new THREE.Mesh(formaSoporte2, material);
+		
+		Base = new base();
+		Rueda1 = new  rueda ();
+		Rueda2 = new  rueda ();
 
-		mallaRueda1.position.set( 0, 0, 0);
-		mallaBase.position.set( 0, 0, 50); 
-		mallaRueda2.position.set( 0, 0, 100);
-		mallaSoporte.position.set( 0, 100, 50);
-		mallaSoporte2.position.set( 0, 50, 53 );
+		Rueda1.position.set( 0, 0, 0);
+		Rueda2.position.set( 0, 0, 100);
+		Soporte1.position.set( 0, 100, 50);
+		Soporte2.position.set( 0, 50, 53 );
+		Base.position.set( 0, 0, 50); 
 		
 	var forma = new THREE.Geometry();
-	THREE.GeometryUtils.merge(forma,mallaRueda1);
-	THREE.GeometryUtils.merge(forma,mallaRueda2);
-	THREE.GeometryUtils.merge(forma,mallaSoporte);
-	THREE.GeometryUtils.merge(forma,mallaSoporte2);	
-	THREE.GeometryUtils.merge(forma,mallaBase);	
-		
-
-	var material = new THREE.MeshNormalMaterial();
+	
+	// THREE.GeometryUtils.merge(forma,Rueda1);
+	// THREE.GeometryUtils.merge(forma,Rueda2);
+	THREE.GeometryUtils.merge(forma,Soporte1);
+	THREE.GeometryUtils.merge(forma,Soporte2);	
+	// THREE.GeometryUtils.merge(forma,Base);	
+	
 	Segway = new THREE.Mesh(forma, material);
 	
-	Pared1.position.x=50;
-	Pared2.position.z=50;
-	Pared3.position.x=-50;
-	Pared4.position.z=-50;	
+	Pared1.position.x=150;
+	Pared2.position.z=150;
+	Pared3.position.x=-150;
+	Pared4.position.z=-150;	
 		
 	var luzfocal = new THREE.SpotLight( 0xffffff, 5, 200, 0.2 );
   	luzfocal.position.x = -500;
@@ -80,8 +95,11 @@ function setup(){
   	luzfocal.position.z = 0;
   
   	camara = new THREE.PerspectiveCamera();
-	camara.position.y = 500;
+	camara.position.y =500;
+	// camara.position.y =100;
 	camara.rotation.x = -1.57;
+
+
 	raycaster = new THREE.Raycaster(Segway.position, new THREE.Vector3(1,0,0));
   	
   	
@@ -93,12 +111,22 @@ function setup(){
 	escena.add(Pared2);
 	escena.add(Pared3);
 	escena.add(Pared4);
+	escena.add(Segway);
+	escena.add(Base);
+	escena.add(Rueda1);
+	escena.add(Rueda2);
 	
 	renderer = new THREE.WebGLRenderer();
 	renderer.setSize( window.innerHeight*.95, window.innerHeight*.95 );
 	document.body.appendChild( renderer.domElement );
-	step = 15;
+	step = 0.5;
 }
+
+
+
+
+
+
 function loop() {
 
   
@@ -132,39 +160,90 @@ if (dir==1){
 	Segway.position.x+=step;
 	Segway.rotation.y=1.57;
 	Segway.rotation.z=0;
-	 
+	
+	Rueda1.position.x+=step;
+	Rueda1.rotation.y=1.57;
+	Rueda1.rotation.z=0;
+	
+	Rueda2.position.x+=step;
+	Rueda2.rotation.y=1.57;
+	Rueda2.rotation.z=0;	
 	 	 
+	Base.position.x+=step;
+	Base.rotation.y=1.57;
+	Base.rotation.z=0;
   }
   else if(dir==2){
 	Segway.position.z+=step;
 	Segway.rotation.y=0;
 	Segway.rotation.z=0;
+	
+	Rueda1.position.z+=step;
+	Rueda1.rotation.y=0;
+	Rueda1.rotation.z=0;
+	
+	Rueda2.position.z+=step;
+	Rueda2.rotation.y=0;
+	Rueda2.rotation.z=0;	
+	 	 
+	Base.position.z+=step;
+	Base.rotation.y=0;
+	Base.rotation.z=0;
 	 
   }
   else if(dir==3){
 	Segway.position.x-=step;
 	Segway.rotation.y=-1.57;
 	Segway.rotation.z=0;
+	
+	Rueda1.position.x-=step;
+	Rueda1.rotation.y=-1.57;
+	Rueda1.rotation.z=0;
+	
+	Rueda2.position.x-=step;
+	Rueda2.rotation.y=-1.57;
+	Rueda2.rotation.z=0;	
+	 	 
+	Base.position.x-=step;
+	Base.rotation.y=-1.57;
+	Base.rotation.z=0;
+	
+	
   }
   else if(dir==4){
 	Segway.position.z-=step;
 	Segway.rotation.y=3.14;
 	Segway.rotation.z=0;
-    
 	
+	Rueda1.position.z-=step;
+	Rueda1.rotation.y=3.14;
+	Rueda1.rotation.z=0;
+	
+	Rueda2.position.z-=step;
+	Rueda2.rotation.y=3.14;
+	Rueda2.rotation.z=0;	
+	 	 
+	Base.position.z-=step;
+	Base.rotation.y=3.14;
+	Base.rotation.z=0;
+    
 	}
+	
  
+  
+  
+  
   renderer.render(escena,camara);
   requestAnimationFrame(loop);
 }
 
-var escena, camara, renderer, Pared1, Pared2,Pared3,Pared4, wally;
+var escena, camara, renderer, Pared1, Pared2,Pared3,Pared4, Segway;
 var Obs1,Obs2,Obs3,Obs4;
 var dir
 dir = 1;
 var cubo1, cubo2, mallaRobot, camara, escena, renderer;
-var mallaRueda1, mallaRueda2, mallaBase, mallaSoporte, mallaSoporte2;
-var raycaster1,raycaster2, raycaster3, step;
+var Rueda1, Rueda2, mallaBase, Soporte, Soporte2;
+var raycaster, step;
 var obstaculo1, obstaculo2;
 
 setup();
