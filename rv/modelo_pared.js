@@ -175,19 +175,19 @@ if (dir==1){
   }
   else if(dir==2){
 	Segway.position.z+=step;
-	Segway.rotation.y=0;
+	Segway.rotation.y=1.57;
 	Segway.rotation.z=0;
 	
 	Rueda1.position.z+=step;
-	Rueda1.rotation.y=0;
+	Rueda1.rotation.y=1.57;
 	Rueda1.rotation.z=0;
 	
 	Rueda2.position.z+=step;
-	Rueda2.rotation.y=0;
+	Rueda2.rotation.y=1.57;
 	Rueda2.rotation.z=0;	
 	 	 
 	Base.position.z+=step;
-	Base.rotation.y=0;
+	Base.rotation.y=1.57;
 	Base.rotation.z=0;
 	 
   }
