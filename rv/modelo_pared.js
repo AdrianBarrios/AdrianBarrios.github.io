@@ -36,15 +36,15 @@ Pared4= new THREE.Mesh(new THREE.BoxGeometry(300,10,3),new THREE.MeshNormalMater
 	mallaSoporte2.position.set( 0, 50, 53 );
 	
 	
-	var robot = new THREE.Geometry();
+var robot = new THREE.Geometry();
 
-	THREE.GeometryUtils.merge(robot, mallaRueda1);
-	THREE.GeometryUtils.merge(robot, mallaRueda2);
-	THREE.GeometryUtils.merge(robot, mallaBase);
-	THREE.GeometryUtils.merge(robot, mallaSoporte);
-	THREE.GeometryUtils.merge(robot, mallaSoporte2);
+	THREE.GeometryUtils.merge( robot, mallaRueda1 );
+	THREE.GeometryUtils.merge( robot, mallaRueda2 );
+	THREE.GeometryUtils.merge( robot, mallaBase );
+	THREE.GeometryUtils.merge( robot, mallaSoporte );
+	THREE.GeometryUtils.merge( robot, mallaSoporte2 );
 	
-	Segway = new THREE.Mesh( robot , material );
+	mallaRobot = new THREE.Mesh( robot , material );
 
 	Pared1.position.x=150;
 	Pared2.position.z=150;
@@ -71,7 +71,7 @@ Pared4= new THREE.Mesh(new THREE.BoxGeometry(300,10,3),new THREE.MeshNormalMater
 	escena.add(Pared2);
 	escena.add(Pared3);
 	escena.add(Pared4);
-	escena.add(mallaBase);
+	escena.add(mallaRobot);
 
 	renderer = new THREE.WebGLRenderer();
 	renderer.setSize( window.innerHeight*.95, window.innerHeight*.95 );
