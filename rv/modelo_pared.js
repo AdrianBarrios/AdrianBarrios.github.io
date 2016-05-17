@@ -67,6 +67,11 @@ Pared4= new THREE.Mesh(new THREE.BoxGeometry(300,10,3),new THREE.MeshNormalMater
 	escena = new THREE.Scene();
 	escena.add(Segway);
 	escena.add(luzfocal);
+	escena.add(Pared1);
+	escena.add(Pared2);
+	escena.add(Pared3);
+	escena.add(Pared4);
+	escena.add(mallaBase);
 
 	renderer = new THREE.WebGLRenderer();
 	renderer.setSize( window.innerHeight*.95, window.innerHeight*.95 );
@@ -139,12 +144,11 @@ if (dir==1){
 	
 }
 
-var mallaRobot, camara, escena, renderer;
 var escena, camara, renderer, Pared1, Pared2,Pared3,Pared4, Segway;
 var Obs1,Obs2,Obs3,Obs4;
 var dir
 dir = 1;
-var cubo1, cubo2, mallaRobot, camara, escena, renderer;
+var cubo1, cubo2, mallaRobot;
 var Rueda1, Rueda2, mallaBase, Soporte, Soporte2;
 var raycaster, step;
 var obstaculo1, obstaculo2;
