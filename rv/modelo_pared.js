@@ -158,19 +158,19 @@ function loop() {
 
 if (dir==1){
 	Segway.position.x+=step;
-	Segway.rotation.y=1.57;
+	Segway.rotation.y=0;
 	Segway.rotation.z=0;
 	
 	Rueda1.position.x+=step;
-	Rueda1.rotation.y=1.57;
+	Rueda1.rotation.y=0;
 	Rueda1.rotation.z=0;
 	
 	Rueda2.position.x+=step;
-	Rueda2.rotation.y=1.57;
+	Rueda2.rotation.y=0;
 	Rueda2.rotation.z=0;	
 	 	 
 	Base.position.x+=step;
-	Base.rotation.y=1.57;
+	Base.rotation.y=0;
 	Base.rotation.z=0;
   }
   else if(dir==2){
