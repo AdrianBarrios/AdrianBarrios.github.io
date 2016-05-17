@@ -136,6 +136,14 @@ if (dir==1){
 }
 
 var mallaRobot, camara, escena, renderer;
+var escena, camara, renderer, Pared1, Pared2,Pared3,Pared4, Segway;
+var Obs1,Obs2,Obs3,Obs4;
+var dir
+dir = 1;
+var cubo1, cubo2, mallaRobot, camara, escena, renderer;
+var Rueda1, Rueda2, mallaBase, Soporte, Soporte2;
+var raycaster, step;
+var obstaculo1, obstaculo2;
 
 setup();
 loop();
