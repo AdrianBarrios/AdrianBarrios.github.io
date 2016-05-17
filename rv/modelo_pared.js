@@ -60,6 +60,9 @@ Pared4= new THREE.Mesh(new THREE.BoxGeometry(300,10,3),new THREE.MeshNormalMater
 	camara.position.y =500;
 	// camara.position.y =100;
 	camara.rotation.x = -1.57;
+	
+	raycaster = new THREE.Raycaster(Segway.position, new THREE.Vector3(1,0,0));
+
 
 	escena = new THREE.Scene();
 	escena.add( Segway );
