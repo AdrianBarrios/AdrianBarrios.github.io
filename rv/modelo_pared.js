@@ -184,7 +184,7 @@ if (dir==1){
 	Rueda1.position.z+=step;
 	Rueda1.rotation.y=1.57;
 	Rueda1.rotation.z=0;
-	Rueda1.position.x+=130;
+	Rueda1.position.y+=130;
 	
 	Rueda2.position.z+=step;
 	Rueda2.rotation.y=1.57;
