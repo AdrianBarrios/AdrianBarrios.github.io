@@ -51,10 +51,10 @@ function setup(){
 	
 	
 	
-	Pared1= new THREE.Mesh(new THREE.BoxGeometry(20,80,1200),new THREE.MeshNormalMaterial());
-	Pared2= new THREE.Mesh(new THREE.BoxGeometry(1200,80,20),new THREE.MeshNormalMaterial());
-	Pared3= new THREE.Mesh(new THREE.BoxGeometry(20,80,1200),new THREE.MeshNormalMaterial());	
-	Pared4= new THREE.Mesh(new THREE.BoxGeometry(1200,20,80),new THREE.MeshNormalMaterial());
+	Pared1= new THREE.Mesh(new THREE.BoxGeometry(20,80,1000),new THREE.MeshNormalMaterial());
+	Pared2= new THREE.Mesh(new THREE.BoxGeometry(1000,80,20),new THREE.MeshNormalMaterial());
+	Pared3= new THREE.Mesh(new THREE.BoxGeometry(20,80,1000),new THREE.MeshNormalMaterial());	
+	Pared4= new THREE.Mesh(new THREE.BoxGeometry(1000,20,80),new THREE.MeshNormalMaterial());
 	
 
 		var formaSoporte1 = new THREE.BoxGeometry( 10,10,70);
@@ -95,7 +95,7 @@ function setup(){
   	luzfocal.position.z = 0;
   
   	camara = new THREE.PerspectiveCamera();
-	camara.position.y =1200;
+	camara.position.y =2000;
 	// camara.position.y =100;
 	camara.rotation.x = -1.57;
 
