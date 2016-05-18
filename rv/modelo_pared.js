@@ -184,12 +184,12 @@ if (dir==1){
 	Rueda1.position.z+=step;
 	Rueda1.rotation.y=1.57;
 	Rueda1.rotation.z=0;
-	Rueda1.position.X+=175;
+	Rueda1.position.x+=175;
 	
 	Rueda2.position.z+=step;
 	Rueda2.rotation.y=1.57;
 	Rueda2.rotation.z=0;
-	Rueda2.rotation.z=125;
+	Rueda2.rotation.x=125;
 	 	 
 	Base.position.z+=step;
 	Base.rotation.y=1.57;
