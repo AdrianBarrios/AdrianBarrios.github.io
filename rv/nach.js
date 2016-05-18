@@ -1,3 +1,5 @@
+//http://ignacio121990.github.io/rv/
+
 function Completo(){
   THREE.Object3D.call(this);
   THREE.ImageUtils.crossOrigin = '';
