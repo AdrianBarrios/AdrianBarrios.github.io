@@ -51,10 +51,10 @@ function setup(){
 	
 	
 	
-	Pared1= new THREE.Mesh(new THREE.BoxGeometry(6,20,600),new THREE.MeshNormalMaterial());
-	Pared2= new THREE.Mesh(new THREE.BoxGeometry(600,20,6),new THREE.MeshNormalMaterial());
-	Pared3= new THREE.Mesh(new THREE.BoxGeometry(6,20,600),new THREE.MeshNormalMaterial());	
-	Pared4= new THREE.Mesh(new THREE.BoxGeometry(600,20,6),new THREE.MeshNormalMaterial());
+	Pared1= new THREE.Mesh(new THREE.BoxGeometry(20,80,1200),new THREE.MeshNormalMaterial());
+	Pared2= new THREE.Mesh(new THREE.BoxGeometry(1200,80,20),new THREE.MeshNormalMaterial());
+	Pared3= new THREE.Mesh(new THREE.BoxGeometry(20,80,1200),new THREE.MeshNormalMaterial());	
+	Pared4= new THREE.Mesh(new THREE.BoxGeometry(1200,20,80),new THREE.MeshNormalMaterial());
 	
 
 		var formaSoporte1 = new THREE.BoxGeometry( 10,10,70);
@@ -84,10 +84,10 @@ function setup(){
 	
 	Segway = new THREE.Mesh(forma, material);
 	
-	Pared1.position.x=300;
-	Pared2.position.z=300;
-	Pared3.position.x=-300;
-	Pared4.position.z=-300;	
+	Pared1.position.x=600;
+	Pared2.position.z=600;
+	Pared3.position.x=-600;
+	Pared4.position.z=-600;	
 		
 	var luzfocal = new THREE.SpotLight( 0xffffff, 5, 200, 0.2 );
   	luzfocal.position.x = -500;
