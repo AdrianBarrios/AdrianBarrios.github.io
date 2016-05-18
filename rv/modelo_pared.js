@@ -95,7 +95,7 @@ function setup(){
   	luzfocal.position.z = 0;
   
   	camara = new THREE.PerspectiveCamera();
-	camara.position.y =500;
+	camara.position.y =1200;
 	// camara.position.y =100;
 	camara.rotation.x = -1.57;
 
