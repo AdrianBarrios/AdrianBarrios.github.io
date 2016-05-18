@@ -51,10 +51,10 @@ function setup(){
 	
 	
 	
-	Pared1= new THREE.Mesh(new THREE.BoxGeometry(20,80,1000),new THREE.MeshNormalMaterial());
-	Pared2= new THREE.Mesh(new THREE.BoxGeometry(1000,80,20),new THREE.MeshNormalMaterial());
-	Pared3= new THREE.Mesh(new THREE.BoxGeometry(20,80,1000),new THREE.MeshNormalMaterial());	
-	Pared4= new THREE.Mesh(new THREE.BoxGeometry(1000,80,20),new THREE.MeshNormalMaterial());
+	Pared1= new THREE.Mesh(new THREE.BoxGeometry(20,80,1020),new THREE.MeshNormalMaterial());
+	Pared2= new THREE.Mesh(new THREE.BoxGeometry(1020,80,20),new THREE.MeshNormalMaterial());
+	Pared3= new THREE.Mesh(new THREE.BoxGeometry(20,80,1020),new THREE.MeshNormalMaterial());	
+	Pared4= new THREE.Mesh(new THREE.BoxGeometry(1020,80,20),new THREE.MeshNormalMaterial());
 	
 
 		var formaSoporte1 = new THREE.BoxGeometry( 10,10,70);
