@@ -1,0 +1,106 @@
+function  Robot(){
+THREE.Object3D.call(this);
+
+this.arcShape = new THREE.Shape();
+				this.arcShape.moveTo( 50, 10 );
+				this.arcShape.absarc( 10, 10, 40, 0, Math.PI*2, false );
+	this.holePath = new THREE.Path();
+				this.holePath.moveTo( 20, 10 );
+				this.holePath.absarc( 10, 10, 10, 0, Math.PI*2, true );
+				this.arcShape.holes.push( this.holePath );
+
+	this.extrudeSettings = { amount: 8, bevelEnabled: true, bevelSegments: 2, steps: 2, bevelSize: 1, bevelThickness: 1 };
+	
+	this.Rueda1 = new THREE.ExtrudeGeometry( this.arcShape, this.extrudeSettings );
+	this.Rueda2 = new THREE.ExtrudeGeometry( this.arcShape, this.extrudeSettings );
+ this.Base = new THREE.Mesh( new THREE.BoxGeometry( 50,20,98 ), new THREE.MeshNormalMaterial() );
+  this.Soporte1 = new THREE.BoxGeometry( 10,10,70);
+	this.Soporte2 = new THREE.CylinderGeometry(5,5.25 );
+
+    Rueda1.position.set( 0, 0, 0);
+		Rueda2.position.set( 0, 0, 100);
+		Soporte1.position.set( 0, 100, 50);
+		Soporte2.position.set( 0, 50, 53 );
+		Base.position.set( 0, 0, 50); 
+		
+		this.add(this.Rueda1)
+		this.add(this.Rueda2)
+		this.add(this.Base)
+		this.add(this.Soporte1)
+		this.add(this.Soporte2)
+		
+		}
+		
+		Robot.prototype = new THREE.Object3D();
+
+function setup(){
+
+  Pared1= new THREE.Mesh(new THREE.BoxGeometry(20,80,1020),new THREE.MeshNormalMaterial());
+	Pared2= new THREE.Mesh(new THREE.BoxGeometry(1020,80,20),new THREE.MeshNormalMaterial());
+	Pared3= new THREE.Mesh(new THREE.BoxGeometry(20,80,1020),new THREE.MeshNormalMaterial());	
+	Pared4= new THREE.Mesh(new THREE.BoxGeometry(1020,80,20),new THREE.MeshNormalMaterial());
+	
+	Segway = new Robot();
+	
+	Pared1.position.x=500;
+	Pared2.position.z=500;
+	Pared3.position.x=-500;
+	Pared4.position.z=-500;	
+	
+	
+	camara = new THREE.PerspectiveCamera();
+	camara.position.y =2000;
+	// camara.position.y =100;
+	camara.rotation.x = -1.57;
+	
+	raycaster1 = new THREE.Raycaster( Segway.position, new THREE.Vector3(1,0,0));
+  raycaster2 = new THREE.Raycaster( Segway.position, new THREE.Vector3(-1,0,0));
+  raycaster3 = new THREE.Raycaster( Segway.position, new THREE.Vector3(0,1,0));
+  raycaster4 = new THREE.Raycaster( Segway.position, new THREE.Vector3(0,-1,0));
+  
+  escena = new THREE.Scene();
+	escena.add(camara);
+	escena.add(Pared1);
+	escena.add(Pared2);
+	escena.add(Pared3);
+	escena.add(Pared4);
+	escena.add(Segway);
+	  
+	renderer = new THREE.WebGLRenderer();
+	renderer.setSize( window.innerHeight*.95, window.innerHeight*.95 );
+	document.body.appendChild( renderer.domElement );
+	step = 0.5;
+	}
+	
+	
+function loop() {
+
+  
+  Obs1=raycaster.intersectObject(Pared1);
+  Obs2=raycaster.intersectObject(Pared2);
+  Obs3=raycaster.intersectObject(Pared3);
+  Obs4=raycaster.intersectObject(Pared4);
+  
+   if ((Obs1.length>0) && (Obs1[0].distance<=10)){
+    raycaster.set(Segway.position,new THREE.Vector3(0,0,1));
+	dir=2;
+	
+  }
+  
+  if ((Obs2.length>0) && (Obs2[0].distance<=10)){
+    raycaster.set(Segway.position,new THREE.Vector3(-1,0,0));
+	dir=3;
+  }
+ if ((Obs3.length>0) && (Obs3[0].distance<=10)){
+    raycaster.set(Segway.position,new THREE.Vector3(0,0,-1));
+	dir=4;
+  }
+  
+  if ((Obs4.length>0) && (Obs4[0].distance<=10)){
+    raycaster.set(Segway.position,new THREE.Vector3(1,0,0));
+	dir=1;
+  }
+
+
+
+
