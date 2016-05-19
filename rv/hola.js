@@ -22,7 +22,7 @@ this.arcShape = new THREE.Shape();
 		Soporte1.position.set( 0, 100, 50);
 		Soporte2.position.set( 0, 50, 53 );
 		Base.position.set( 0, 0, 50); 
-		
+		 
 		this.add(this.Rueda1)
 		this.add(this.Rueda2)
 		this.add(this.Base)
