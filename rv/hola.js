@@ -100,7 +100,95 @@ function loop() {
     raycaster.set(Segway.position,new THREE.Vector3(1,0,0));
 	dir=1;
   }
+if (dir==1){
+	Segway.position.x+=step;
+	Segway.rotation.y=0;
+	Segway.rotation.z=0;
+	
+	Rueda1.position.x+=step;
+	Rueda1.rotation.y=0;
+	Rueda1.rotation.z=0;
+	
+	Rueda2.position.x+=step;
+	Rueda2.rotation.y=0;
+	Rueda2.rotation.z=0;	
+	 	 
+	Base.position.x+=step;
+	Base.rotation.y=0;
+	Base.rotation.z=0;
+  }
+  else if(dir==2){
+	Segway.position.z+=step;
+	Segway.rotation.y=1.57;
+	Segway.rotation.z=1;
+	
+	
+	
+	
+	Rueda1.position.z+=step;
+	Rueda1.rotation.y=1.57;
+	Rueda1.rotation.z=0;
+//	Rueda1.position.x=452.5;
+	
+	Rueda2.position.z+=step;
+	Rueda2.rotation.y=1.57;
+	Rueda2.rotation.z=0;
+	Rueda1.position.x=546.5;
+	 	 
+	Base.position.z+=step;
+	Base.rotation.y=1.57;
+	Base.rotation.z=0;
+	 
+  }
+  else if(dir==3){
+	Segway.position.x-=step;
+	Segway.rotation.y=-1.57;
+	Segway.rotation.z=0;
+	
+	Rueda1.position.x-=step;
+	Rueda1.rotation.y=-1.57;
+	Rueda1.rotation.z=0;
+	
+	Rueda2.position.x-=step;
+	Rueda2.rotation.y=-1.57;
+	Rueda2.rotation.z=0;	
+	 	 
+	Base.position.x-=step;
+	Base.rotation.y=-1.57;
+	Base.rotation.z=0;
+	
+	
+  }
+  else if(dir==4){
+	Segway.position.z-=step;
+	Segway.rotation.y=3.14;
+	Segway.rotation.z=0;
+	
+	Rueda1.position.z-=step;
+	Rueda1.rotation.y=3.14;
+	Rueda1.rotation.z=0;
+	
+	Rueda2.position.z-=step;
+	Rueda2.rotation.y=3.14;
+	Rueda2.rotation.z=0;	
+	 	 
+	Base.position.z-=step;
+	Base.rotation.y=3.14;
+	Base.rotation.z=0;
+    
+	}
+  renderer.render(escena,camara);
+  requestAnimationFrame(loop);
+}
 
+var escena, camara, renderer, Pared1, Pared2,Pared3,Pared4, Segway;
+var Obs1,Obs2,Obs3,Obs4;
+var dir
+dir = 1;
+var cubo1, cubo2, mallaRobot, camara, escena, renderer;
+var Rueda1, Rueda2, mallaBase, Soporte, Soporte2;
+var raycaster1, raycaster2, reycaster3, reycaster4, step;
 
-
+setup();
+loop();
 
