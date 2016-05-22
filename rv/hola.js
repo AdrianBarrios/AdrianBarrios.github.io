@@ -23,7 +23,7 @@ this.arcShape = new THREE.Shape();
 		this.Rueda2.position.z = 100;
 		this.Soporte1.position.y = 100;
 		this.Soporte1.position.z = 50; 
-		this.Soporte2.position.x = 50;
+		this.Soporte2.position.x = 50; 
 		this.Soporte2.position.z = 53; 
 		this.Base.position.z = 50; 
 		 
