@@ -1,5 +1,7 @@
 function  Robot(){
 THREE.Object3D.call(this);
+//THREE.ImageUtils.crossOrigin = '';
+//	this.textura = 	THREE.ImageUtils.loadTexture('http://threejs.org/examples/textures/brick_diffuse.jpg');
 
 this.arcShape = new THREE.Shape();
 				this.arcShape.moveTo( 50, 10 );
@@ -13,15 +15,15 @@ this.arcShape = new THREE.Shape();
 	
 	this.Rueda1 = new THREE.ExtrudeGeometry( this.arcShape, this.extrudeSettings );
 	this.Rueda2 = new THREE.ExtrudeGeometry( this.arcShape, this.extrudeSettings );
- this.Base = new THREE.Mesh( new THREE.BoxGeometry( 50,20,98 ), new THREE.MeshNormalMaterial() );
-  this.Soporte1 = new THREE.BoxGeometry( 10,10,70);
+ 	this.Base = new THREE.Mesh( new THREE.BoxGeometry( 50,20,98 ), new THREE.MeshNormalMaterial() );
+	this.Soporte1 = new THREE.BoxGeometry( 10,10,70);
 	this.Soporte2 = new THREE.CylinderGeometry(5,5.25 );
 
-    Rueda1.position.set( 0, 0, 0);
-		Rueda2.position.set( 0, 0, 100);
-		Soporte1.position.set( 0, 100, 50);
-		Soporte2.position.set( 0, 50, 53 );
-		Base.position.set( 0, 0, 50); 
+		 this.Rueda1.position.set( 0, 0, 0);
+		this.Rueda2.position.set( 0, 0, 100);
+		this.Soporte1.position.set( 0, 100, 50);
+		this.Soporte2.position.set( 0, 50, 53 );
+		this.Base.position.set( 0, 0, 50); 
 		 
 		this.add(this.Rueda1)
 		this.add(this.Rueda2)
@@ -31,7 +33,7 @@ this.arcShape = new THREE.Shape();
 		
 		}
 		
-		Robot.prototype = new THREE.Object3D();
+Robot.prototype = new THREE.Object3D();
 
 function setup(){
 
@@ -177,6 +179,10 @@ if (dir==1){
 	Base.rotation.z=0;
     
 	}
+  raycaster1.set( Segway.position, new THREE.Vector3(1,0,0) );
+  raycaster2.set( Segway.position, new THREE.Vector3(-1,0,0) );
+  raycaster3.set( Segway.position, new THREE.Vector3(0,1,0) );
+  raycaster4.set( Segway.position, new THREE.Vector3(0,-1,0) );
   renderer.render(escena,camara);
   requestAnimationFrame(loop);
 }
