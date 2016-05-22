@@ -19,11 +19,13 @@ this.arcShape = new THREE.Shape();
 	this.Soporte1 = new THREE.BoxGeometry( 10,10,70);
 	this.Soporte2 = new THREE.CylinderGeometry(5,5.25 );
 
-		 this.Rueda1.position( 0, 0, 0);
-		this.Rueda2.position( 0, 0, 100);
-		this.Soporte1.position( 0, 100, 50);
-		this.Soporte2.position( 0, 50, 53 );
-		this.Base.position( 0, 0, 50); 
+		 this.Rueda1.position.y= 0;
+		this.Rueda2.position.z = 100;
+		this.Soporte1.position.y = 100;
+		this.Soporte1.position.z = 50; 
+		this.Soporte2.position.x = 50;
+		this.Soporte2.position.z = 53;
+		this.Base.position.z = 50; 
 		 
 		this.add(this.Rueda1)
 		this.add(this.Rueda2)
