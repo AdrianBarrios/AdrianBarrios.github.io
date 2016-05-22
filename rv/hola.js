@@ -18,7 +18,7 @@ this.arcShape = new THREE.Shape();
  	this.Base = new THREE.Mesh( new THREE.BoxGeometry( 50,20,98 ), new THREE.MeshNormalMaterial() );
 	this.Soporte1 = new THREE.BoxGeometry( 10,10,70);
 	this.Soporte2 = new THREE.CylinderGeometry(5,5.25 );
-
+		
 		 this.Rueda1.position.y= 0;
 		this.Rueda2.position.z = 100;
 		this.Soporte1.position.y = 100;
