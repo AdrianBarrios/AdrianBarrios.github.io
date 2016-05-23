@@ -8,7 +8,7 @@ var arcShape = new THREE.Shape();
 				arcShape.absarc( 10, 10, 40, 0, Math.PI*2, false );
 	var holePath = new THREE.Path();
 				holePath.moveTo( 20, 10 );
-				var holePath.absarc( 10, 10, 10, 0, Math.PI*2, true );
+				holePath.absarc( 10, 10, 10, 0, Math.PI*2, true );
 				arcShape.holes.push( holePath );
 
 	var extrudeSettings = { amount: 8, bevelEnabled: true, bevelSegments: 2, steps: 2, bevelSize: 1, bevelThickness: 1 };
