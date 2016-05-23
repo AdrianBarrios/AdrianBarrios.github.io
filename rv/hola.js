@@ -5,7 +5,7 @@ THREE.Object3D.call(this);
 
 var arcShape = new THREE.Shape();
 				arcShape.moveTo( 50, 10 );
-				var arcShape.absarc( 10, 10, 40, 0, Math.PI*2, false );
+				arcShape.absarc( 10, 10, 40, 0, Math.PI*2, false );
 	var holePath = new THREE.Path();
 				holePath.moveTo( 20, 10 );
 				var holePath.absarc( 10, 10, 10, 0, Math.PI*2, true );
