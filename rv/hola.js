@@ -13,13 +13,13 @@ var arcShape = new THREE.Shape();
 
 	var extrudeSettings = { amount: 8, bevelEnabled: true, bevelSegments: 2, steps: 2, bevelSize: 1, bevelThickness: 1 };
 	
-	var Rueda1 = new THREE.ExtrudeGeometry( arcShape, extrudeSettings );
-	var Rueda2 = new THREE.ExtrudeGeometry( arcShape, extrudeSettings );
+	var Rueda1 =  new THREE.Mesh(new THREE.ExtrudeGeometry( arcShape, extrudeSettings ));
+	var Rueda2 =  new THREE.Mesh(new THREE.ExtrudeGeometry( arcShape, extrudeSettings ));
  	var Base = new THREE.Mesh( new THREE.BoxGeometry( 50,20,98 ), new THREE.MeshNormalMaterial() );
-	var Soporte1 = new THREE.BoxGeometry( 10,10,70);
-	var Soporte2 = new THREE.CylinderGeometry(5,5.25 );
+	var Soporte1 =  new THREE.Mesh(new THREE.BoxGeometry( 10,10,70));
+	var Soporte2 =  new THREE.Mesh( new THREE.CylinderGeometry(5,5.25 ));
 		
-		// this.Rueda1.position.y = 0;
+		this.Rueda1.position.y = 0;
 		this.Rueda2.position.z = 100;
 		this.Soporte1.position.y = 100;
 		this.Soporte1.position.z = 50; 
