@@ -3,21 +3,21 @@ THREE.Object3D.call(this);
 //THREE.ImageUtils.crossOrigin = '';
 //	this.textura = 	THREE.ImageUtils.loadTexture('http://threejs.org/examples/textures/brick_diffuse.jpg');
 
-this.arcShape = new THREE.Shape();
-				this.arcShape.moveTo( 50, 10 );
-				this.arcShape.absarc( 10, 10, 40, 0, Math.PI*2, false );
-	this.holePath = new THREE.Path();
-				this.holePath.moveTo( 20, 10 );
-				this.holePath.absarc( 10, 10, 10, 0, Math.PI*2, true );
-				this.arcShape.holes.push( this.holePath );
+var arcShape = new THREE.Shape();
+				arcShape.moveTo( 50, 10 );
+				var arcShape.absarc( 10, 10, 40, 0, Math.PI*2, false );
+	var holePath = new THREE.Path();
+				holePath.moveTo( 20, 10 );
+				var holePath.absarc( 10, 10, 10, 0, Math.PI*2, true );
+				arcShape.holes.push( holePath );
 
-	this.extrudeSettings = { amount: 8, bevelEnabled: true, bevelSegments: 2, steps: 2, bevelSize: 1, bevelThickness: 1 };
+	var extrudeSettings = { amount: 8, bevelEnabled: true, bevelSegments: 2, steps: 2, bevelSize: 1, bevelThickness: 1 };
 	
-	this.Rueda1 = new THREE.ExtrudeGeometry( this.arcShape, this.extrudeSettings );
-	this.Rueda2 = new THREE.ExtrudeGeometry( this.arcShape, this.extrudeSettings );
- 	this.Base = new THREE.Mesh( new THREE.BoxGeometry( 50,20,98 ), new THREE.MeshNormalMaterial() );
-	this.Soporte1 = new THREE.BoxGeometry( 10,10,70);
-	this.Soporte2 = new THREE.CylinderGeometry(5,5.25 );
+	var Rueda1 = new THREE.ExtrudeGeometry( arcShape, extrudeSettings );
+	var Rueda2 = new THREE.ExtrudeGeometry( arcShape, extrudeSettings );
+ 	var Base = new THREE.Mesh( new THREE.BoxGeometry( 50,20,98 ), new THREE.MeshNormalMaterial() );
+	var Soporte1 = new THREE.BoxGeometry( 10,10,70);
+	var Soporte2 = new THREE.CylinderGeometry(5,5.25 );
 		
 		// this.Rueda1.position.y = 0;
 		this.Rueda2.position.z = 100;
