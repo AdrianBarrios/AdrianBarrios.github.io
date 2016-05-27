@@ -4,7 +4,7 @@ function Sensor(position,direction){
 }
 Sensor.prototype=new THREE.Raycaster();
 
-function  Robot(){
+function  Segway(){
 THREE.Object3D.call(this);
 //THREE.ImageUtils.crossOrigin = '';
 //	this.textura = 	THREE.ImageUtils.loadTexture('http://threejs.org/examples/textures/brick_diffuse.jpg');
@@ -40,7 +40,7 @@ var arcShape = new THREE.Shape();
 		this.add(this.Soporte2)
 		
 		}
-Robot.prototype = new THREE.Object3D();
+Segway.prototype = new THREE.Object3D();
 
 function Wall(size,x=0,y=0){
  THREE.Mesh.call(this,new THREE.BoxGeometry(size,size,size), new THREE.MeshNormalMaterial()); 
@@ -62,36 +62,25 @@ Environment.prototype.setMap=function(map){
  }
 }	
 
-Robot.prototype.sense=function(environment){
+Segway.prototype.sense=function(environment){
  this.sensor.set(this.position, new THREE.Vector3(Math.cos(this.rotation.z),Math.sin(this.rotation.z),0));
- //this.sensor2.set(this.position, new THREE.Vector3(Math.sin(this.rotation.z),Math.cos(this.rotation.z),0));
  var obstaculo = this.sensor.intersectObjects(environment.children,true);
- //var obstaculo2 = this.sensor2.intersectObjects(environment.children,true);
  if ((obstaculo.length>0&&(obstaculo[0].distance<=1.5)))
   this.sensor.colision=true;
  else
   this.sensor.colision=false;
- /*if((obstaculo2.length>0&&(obstaculo2[0].distance<=1)))
-  this.sensor2.colision=true;
- else
-  this.sensor2.colision=false;*/
+
 }
 
-Robot.prototype.plan = function(environment){
+Segway.prototype.plan = function(environment){
  this.actuator.commands=[];
- /*if(this.sensor.colision==false && this.sensor2.colision==true)
-  this.actuator.commands.push('Derecho');
- else if(this.sensor.colision==true && this.sensor2.colision==true)
-   this.actuator.commands.push('RotarDerecha');
- else
-   this.actuator.commands.push('RotarIzquierda');*/
   if(this.sensor.colision==true)
    this.actuator.commands.push('RotarIzquierda');
   else
    this.actuator.commands.push('Derecho');
 }
 
-Robot.prototype.act=function(environment){
+Segway.prototype.act=function(environment){
  var command=this.actuator.commands.pop();
  if(command==undefined)
   console.log('Undefined command');
@@ -101,38 +90,40 @@ Robot.prototype.act=function(environment){
   console.log('Unknown command'); 
 }
 
-Robot.prototype.operations = {};
+Segway.prototype.operations = {};
 
-Robot.prototype.operations.Derecho = function(robot,step){
+Segway.prototype.operations.Derecho = function(Segway,step){
+	
+	
  if(step==undefined)
  step=0.01;
  robot.scale.x=0.5;
  robot.scale.y=0.5;
  robot.scale.z=0.5;
- if (Math.abs(robot.Rueda1.rotation.z) > .3 )
+ if (Math.abs(Segway.Rueda1.rotation.z) > .3 )
   steppie = -steppie;
 
-if (Math.abs(robot.Rueda2.rotation.x) > 2 || Math.abs(robot.Rueda2.rotation.x) < 1)
+if (Math.abs(Segway.Rueda2.rotation.x) > 2 || Math.abs(Segway.Rueda2.rotation.x) < 1)
   stepRueda = -stepRueda;
 
- robot.position.x+=step*Math.cos(robot.rotation.z);
- robot.position.y+=step*Math.sin(robot.rotation.z);
- robot.Rueda1.rotation.x += stepRueda;
- robot.Rueda2.rotation.x += stepRueda;
- robot.Base.rotation.z += steppie;
+ Segway.position.x+=step*Math.cos(Segway.rotation.z);
+ Segway.position.y+=step*Math.sin(Segway.rotation.z);
+ Segway.Rueda1.rotation.x += stepRueda;
+ Segway.Rueda2.rotation.x += stepRueda;
+ Segway.Base.rotation.z += steppie;
  };
-Robot.prototype.operations.RotarDerecha = function(robot,angulo){
+Segway.prototype.operations.RotarDerecha = function(Segway,angulo){
  if(angulo==undefined){
   angulo=-Math.PI/2;
  }
- robot.rotation.z+=angulo;
+ Segway.rotation.z+=angulo;
 };
 
-Robot.prototype.operations.RotarIzquierda = function(robot,angulo){
+Segway.prototype.operations.RotarIzquierda = function(Segway,angulo){
  if(angulo==undefined){
   angulo=Math.PI/2;
  }
- robot.rotation.z+=angulo;
+ Segway.rotation.z+=angulo;
 };
  
 function setup(){
@@ -192,7 +183,7 @@ function loop(){
  renderer.render(entorno,camara);
 }
 
-var entorno,luzPuntual,robot,step,angulo,camara,renderer,steppie, stepbrazo;
+var entorno,luzPuntual,Segway,step,angulo,camara,renderer,steppie, stepbrazo;
 
 setup();
 loop();
