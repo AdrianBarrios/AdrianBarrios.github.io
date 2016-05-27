@@ -13,11 +13,11 @@ var arcShape = new THREE.Shape();
 
 	var extrudeSettings = { amount: 8, bevelEnabled: true, bevelSegments: 2, steps: 2, bevelSize: 1, bevelThickness: 1 };
 	
-	this.Rueda1 =  new THREE.Mesh(new THREE.ExtrudeGeometry( arcShape, extrudeSettings );//,new THREE.MeshPhongMaterial({map}));
-	this.Rueda2 =  new THREE.Mesh(new THREE.ExtrudeGeometry( arcShape, extrudeSettings );//,new THREE.MeshPhongMaterial({map}));
- 	this.Base = new THREE.Mesh( new THREE.BoxGeometry( 50,20,98 );//, new THREE.MeshPhongMaterial({map}));
-	this.Soporte1 =  new THREE.Mesh(new THREE.BoxGeometry( 10,10,70);//, new THREE.MeshPhongMaterial({map}));
-	this.Soporte2 =  new THREE.Mesh( new THREE.CylinderGeometry(5,5.25 );//,new THREE.MeshPhongMaterial({map}));
+	this.Rueda1 =  new THREE.Mesh(new THREE.ExtrudeGeometry( arcShape, extrudeSettings ));//,new THREE.MeshPhongMaterial({map}));
+	this.Rueda2 =  new THREE.Mesh(new THREE.ExtrudeGeometry( arcShape, extrudeSettings ));//,new THREE.MeshPhongMaterial({map}));
+ 	this.Base = new THREE.Mesh( new THREE.BoxGeometry( 50,20,98 ));//, new THREE.MeshPhongMaterial({map}));
+	this.Soporte1 =  new THREE.Mesh(new THREE.BoxGeometry( 10,10,70));//, new THREE.MeshPhongMaterial({map}));
+	this.Soporte2 =  new THREE.Mesh( new THREE.CylinderGeometry(5,5.25 ));//,new THREE.MeshPhongMaterial({map}));
 		
 		this.Rueda1.position.y = 0;
 		this.Rueda2.position.z = 100;
