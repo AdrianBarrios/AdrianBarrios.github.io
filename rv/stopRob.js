@@ -118,7 +118,7 @@ Environment.prototype.setMap=function(map){
    if(map[i][j]==="x")
     this.add(new Wall(1, j-offset,-(i-offset)));
    else if(map[i][j]==="r")
-    this.add(new Robot(j-offset,-(i-offset)));
+    this.add(new Segway(j-offset,-(i-offset)));
   }
  }
 }	
@@ -158,9 +158,9 @@ Segway.prototype.operations.Derecho = function(Segway,step){
 	
  if(step==undefined)
  step=0.01;
- robot.scale.x=0.5;
- robot.scale.y=0.5;
- robot.scale.z=0.5;
+ Segway.scale.x=0.5;
+ Segway.scale.y=0.5;
+ Segway.scale.z=0.5;
  if (Math.abs(Segway.Rueda1.rotation.z) > .3 )
   steppie = -steppie;
 
