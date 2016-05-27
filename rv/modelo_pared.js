@@ -1,7 +1,7 @@
 function  Robot(){
 THREE.Object3D.call(this);
-THREE.ImageUtils.crossOrigin = '';
-this.textura = 	THREE.ImageUtils.loadTexture('http://threejs.org/examples/textures/brick_diffuse.jpg');
+//THREE.ImageUtils.crossOrigin = '';
+//this.textura = 	THREE.ImageUtils.loadTexture('http://threejs.org/examples/textures/brick_diffuse.jpg');
 
 var arcShape = new THREE.Shape();
 				arcShape.moveTo( 50, 10 );
