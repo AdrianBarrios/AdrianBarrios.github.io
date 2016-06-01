@@ -6,10 +6,8 @@ Sensor.prototype=new THREE.Raycaster();
 
 function Segway(x=0, y=0 ){
  Agent.call(this,x,y);
- 
- THREE.ImageUtils.crossOrigin = '';
-this.textura = 	THREE.ImageUtils.loadTexture('https://famsa_imagenes2.storage.googleapis.com/238401024ENERGYXM2_perfil2.jpg')
-this.textura2 = 	THREE.ImageUtils.loadTexture('https://upload.wikimedia.org/wikipedia/en/thumb/0/01/Segway_logo.svg/1280px-Segway_logo.svg.png')
+//THREE.ImageUtils.crossOrigin = '';
+//	this.textura = 	THREE.ImageUtils.loadTexture('http://threejs.org/examples/textures/brick_diffuse.jpg');
 
 var arcShape = new THREE.Shape();
 				arcShape.moveTo( 50, 10 );
@@ -21,11 +19,11 @@ var arcShape = new THREE.Shape();
 
 	var extrudeSettings = { amount: 8, bevelEnabled: true, bevelSegments: 2, steps: 2, bevelSize: 1, bevelThickness: 1 };
 	
-	this.Rueda1 =  new THREE.Mesh(new THREE.ExtrudeGeometry( arcShape, extrudeSettings ),new THREE.MeshBasicMaterial({map: this.textura}));
-	this.Rueda2 =  new THREE.Mesh(new THREE.ExtrudeGeometry( arcShape, extrudeSettings ),new THREE.MeshBasicMaterial({map: this.textura}));
+	this.Rueda1 =  new THREE.Mesh(new THREE.ExtrudeGeometry( arcShape, extrudeSettings ));
+	this.Rueda2 =  new THREE.Mesh(new THREE.ExtrudeGeometry( arcShape, extrudeSettings ));
  	this.Base = new THREE.Mesh( new THREE.BoxGeometry( 50,20,98 ), new THREE.MeshNormalMaterial() );
 	this.Soporte1 =  new THREE.Mesh(new THREE.BoxGeometry( 10,10,70));
-	this.Soporte2 =  new THREE.Mesh( new THREE.CylinderGeometry(5,5.25 ),new THREE.MeshBasicMaterial({map: this.textura2}));
+	this.Soporte2 =  new THREE.Mesh( new THREE.CylinderGeometry(5,5.25 ));
 	this.sensor= new Sensor();
 	this.actuator= new Array();	
 	
@@ -47,9 +45,7 @@ var arcShape = new THREE.Shape();
 Segway.prototype = new THREE.Object3D();
 
 function Wall(size,x=0,y=0){
-	THREE.ImageUtils.crossOrigin = '';
-this.textura = 	THREE.ImageUtils.loadTexture('http://threejs.org/examples/textures/brick_diffuse.jpg');
- THREE.Mesh.call(this,new THREE.BoxGeometry(size,size,size), new THREE.MeshBasicMaterial({map: this.textura} )); 
+ THREE.Mesh.call(this,new THREE.BoxGeometry(size,size,size), new THREE.MeshNormalMaterial()); 
  this.size=size;
  this.position.x=x;
  this.position.y=y;
@@ -77,7 +73,6 @@ Segway.prototype.sense=function(environment){
   this.sensor.colision=false;
 
 }
-
 Segway.prototype.plan = function(environment){
  this.actuator.commands=[];
   if(this.sensor.colision==true)
@@ -119,6 +114,7 @@ if (Math.abs(Segway.Rueda2.rotation.x) > 2 || Math.abs(Segway.Rueda2.rotation.x)
  Segway.Rueda1.rotation.z += stepRueda;
  Segway.Rueda2.rotation.z += stepRueda;
  };
+
 Segway.prototype.operations.RotarDerecha = function(Segway,angulo){
  if(angulo==undefined){
   angulo=-Math.PI/2;
@@ -165,21 +161,30 @@ function setup(){
  mapa[27] = "x                          x";
  mapa[28] = "x  r                       x";
  mapa[29] = "xxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+
  entorno=new Environment();
  entorno.setMap(mapa);
-  stepRueda=0.002;
-  stepp = 0.017;
+ stepRueda=0.002;
+ stepp = 0.017;
+ var piso=new THREE.Mesh(new THREE.BoxGeometry(28,30,0.1), new THREE.MeshLambertMaterial({color:0x00ff00}));
+ piso.position.z=-0.5;
+ piso.position.x=-1.5;
+ piso.position.y=0.5;
  luzPuntual = new THREE.PointLight(0xffffff);
- luzPuntual.position.x=0;  
- luzPuntual.position.y=10;
- luzPuntual.position.z=30;
+ luzPuntual.position.y=15;
+ luzPuntual.position.z=15;
  camara=new THREE.PerspectiveCamera();
- camara.position.z=50;
+ camara.position.z=40;
  renderer = new THREE.WebGLRenderer();
  renderer.setSize(window.innerHeight*0.95, window.innerHeight*0.95);
  document.body.appendChild(renderer.domElement);
  entorno.add(camara);
  entorno.add(luzPuntual);
+ entorno.add(piso);
+ 
+  renderer.shadowMap.enabled=true;
+ piso.receiveShadow=true;
+ luzPuntual.castShadow=true;
 }
 
 function loop(){

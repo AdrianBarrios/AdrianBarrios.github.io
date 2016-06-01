@@ -1,0 +1,116 @@
+<!doctype html>
+<html>
+   <head>
+      <title>Primera persona</title>
+      <meta http-equiv="Content-Type" content="text/html: charset=UTF-8">
+      <style>
+        body { margin: 0;}
+        canvas { width = 100%; height = 100%} 
+      </style>
+      </head>
+      <body>
+        <script src= "three.min.js"></script>
+        <script src= "FirstPersonControls.js"></script>
+        <script>
+		
+		function  Robot(){
+THREE.Object3D.call(this);
+//THREE.ImageUtils.crossOrigin = '';
+//this.textura = 	THREE.ImageUtils.loadTexture('http://threejs.org/examples/textures/brick_diffuse.jpg');
+
+var arcShape = new THREE.Shape();
+				arcShape.moveTo( 50, 10 );
+				arcShape.absarc( 10, 10, 40, 0, Math.PI*2, false );
+	var holePath = new THREE.Path();
+				holePath.moveTo( 20, 10 );
+				holePath.absarc( 10, 10, 10, 0, Math.PI*2, true );
+				arcShape.holes.push( holePath );
+
+	var extrudeSettings = { amount: 8, bevelEnabled: true, bevelSegments: 2, steps: 2, bevelSize: 1, bevelThickness: 1 };
+	
+	this.Rueda1 =  new THREE.Mesh(new THREE.ExtrudeGeometry( arcShape, extrudeSettings ));//,new THREE.MeshPhongMaterial({map}));
+	this.Rueda2 =  new THREE.Mesh(new THREE.ExtrudeGeometry( arcShape, extrudeSettings ));//,new THREE.MeshPhongMaterial({map}));
+ 	this.Base = new THREE.Mesh( new THREE.BoxGeometry( 50,20,98 ));//, new THREE.MeshPhongMaterial({map}));
+	this.Soporte1 =  new THREE.Mesh(new THREE.BoxGeometry( 10,10,70));//, new THREE.MeshPhongMaterial({map}));
+	this.Soporte2 =  new THREE.Mesh( new THREE.CylinderGeometry(5,5.25 ));//,new THREE.MeshPhongMaterial({map}));
+		
+		this.Rueda1.position.y = 0;
+		this.Rueda2.position.z = 100;
+		this.Soporte1.position.y = 100;
+		this.Soporte1.position.z = 50; 
+		this.Soporte2.position.y = 50; 
+		this.Soporte2.position.z = 53; 
+		this.Base.position.z = 50; 
+		 
+		this.add(this.Rueda1)
+		this.add(this.Rueda2)
+		this.add(this.Base)
+		this.add(this.Soporte1)
+		this.add(this.Soporte2)
+		
+		}
+		
+Robot.prototype = new THREE.Object3D();
+
+function setup(){
+
+	Segway = new Robot();
+	
+
+	
+	
+	camara = new THREE.PerspectiveCamera();
+	camara.position.y = 200;
+	//camara.position.z = 1000;
+	camara.rotation.x = -1.57;
+	
+	escena = new THREE.Scene();
+	escena.add(camara);
+	escena.add(Segway);
+	  
+  
+
+	renderer = new THREE.WebGLRenderer();
+	renderer.setSize( window.innerWidth, window.innerHeight );
+	document.body.appendChild( renderer.domElement );
+	step = 1.5;
+	}
+	
+	function loop() {
+
+ 
+  renderer.render(escena,camara);
+  requestAnimationFrame(loop);
+}
+	var escena, camara, renderer, Segway;
+var Obs1,Obs2,Obs3,Obs4;
+var dir
+dir = 1;
+//var cubo1, cubo2, mallaRobot, camara, escena, renderer;
+//var Rueda1, Rueda2, mallaBase, Soporte, Soporte2;
+var raycaster, step;
+
+setup();
+
+	
+		
+	  var clock = new THREE.Clock();
+        var controls = new THREE.FirstPersonControls( camara );
+        controls.movementSpeed = 70;
+        controls.lookSpeed = 0.05;
+        controls.noFly = true;
+        controls.lookVertical = false;
+        
+        function render(){
+        renderer.render( escena, camara );
+        controls.update(clock.getDelta());
+        requestAnimationFrame( render );
+        }
+        
+        render();
+        
+        </script>
+    </body>
+</html>
+
+	
